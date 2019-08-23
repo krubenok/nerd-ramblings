@@ -1,2 +1,2 @@
-# nerdy-ramblings
+# nerd-ramblings
  

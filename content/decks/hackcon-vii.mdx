@@ -1,6 +1,7 @@
 import { Notes, Image, Head, Split, Appear, Invert } from "gatsby-theme-mdx-deck"
 import { themes } from 'mdx-deck'
 export const theme = themes.future
+import Margins from './themes/Margins.js'
 
 # Organizing Organizers
 How to project manage your hackathon and organizing team.
@@ -8,7 +9,6 @@ How to project manage your hackathon and organizing team.
 ---
 
 # About Me 👋
-<!-- TODO: Top-Bottom margins and line spacing on this slide. -->
 - Toronto -> Montreal ❄️
 - McGill Computer Science (5th Year 😬) 🎓
 - 2018 & 2019: Program Manager Intern, Microsoft ☁️
@@ -16,7 +16,6 @@ How to project manage your hackathon and organizing team.
 - 2017-2019: Co-Director, HackMcGill 🐣
 - 2017-2019: President, Computer Science Undergraduate Society 🎙
 - 2018-Current: Board Member, Students' Society of McGill University 📕
-
 
 <Notes>
 
@@ -30,15 +29,17 @@ With that said, let's dig into the actual content.
 
 ---
 
+<Margins>
+
 # Project Manager
-<!-- TODO: Left Right margins on this slide -->
-<!-- TODO: Citation formatting in mdx-deck? -->
 
 <Appear>
 
-_the practice of initiating, planning, executing, controlling, and closing the work of a team to achieve specific goals and meet specific success criteria at the specified time. The primary challenge of project management is to achieve all of the project goals within the given constraints._
+*The practice of initiating, planning, executing, controlling, and closing the work of a team to achieve specific goals and meet specific success criteria at the specified time. The primary challenge of project management is to achieve all of the project goals within the given constraints.*
 
 </Appear>
+
+</Margins>
 
 <Notes>
 
@@ -63,14 +64,18 @@ There's one other thing I want to pull out of this definition, being a project m
 </Notes>
 
 ---
-<!-- Make these appear one after another. -->
-<!-- Highlight the planning item. -->
 
-1. Initiating
-2. *Planning*
-3. Executing
-4. Controlling
-5. Closing
+<!-- Would be nice to bold the planning point if I can figure it out. -->
+
+<ol>
+    <Appear>
+        <li>Initiating</li>
+        <li>Planning</li>
+        <li>Executing</li>
+        <li>Controlling</li>
+        <li>Closing</li>
+    </Appear>
+</ol>
 
 <Notes>
 
@@ -80,7 +85,7 @@ From our definition, we have these five steps to project management. For the sak
 
 ---
 
-### Thinking about the project life cycle
+# Thinking about the project life cycle
 
 <Notes>
 
@@ -90,24 +95,26 @@ What does planning a project actually entail? Typically it's pretty easy to know
 
 ---
 
-Example
+## Example
 
 <Appear>
 
-## Sponsorship
+# Sponsorship
 
 </Appear>
 
 ---
 
-<!-- TODO: make each of these appear one at a time. -->
-
-1. Cold Emails
-2. Phone/Email Negotiations
-3. Contracts
-4. Post-Sales Love
-5. Month/Week/Day Of
-6. Post Care
+<ol>
+    <Appear>
+        <li>Cold Emails</li>
+        <li>Phone/Email Negotiations</li>
+        <li>Contracts</li>
+        <li>Post-Sales Love</li>
+        <li>Month/Week/Day Of</li>
+        <li>Post Care</li>
+    </Appear>
+</ol>
 
 <Notes>
 
@@ -119,7 +126,7 @@ What common bottleneck do each of these problems have?
 
 ---
 
-### People suck at reading emails 🤦‍♂️
+# People suck at reading emails 🤦‍♂️
 
 <Notes>
 
@@ -129,17 +136,17 @@ If we consider the entire lifecycle of the project before we begin and start to 
 
 ---
 
-## So how did I solve this?
+# So how did I solve this?
 
 ---
 
-## Timelines
+# Timelines
 
 ---
 
 <Invert>
 
-![](../../images/mchacks-6-agreement.png)
+![Screenshot of agreemtn used with McHacks 6 Sponsors.](../../images/mchacks-6-agreement.png)
 
 </Invert>
 
@@ -153,7 +160,7 @@ In the week of your event the last thing you want to be doing is scrambling to g
 
 ---
 
-### A System to Capture this Information
+# A System to Capture this Information
 
 <Notes>
 
@@ -163,7 +170,7 @@ Taking that timeline into accout, we can design a repeatable and transparent sys
 
 ---
 
-### How should I implement this?
+# How should I implement this?
 
 <Notes>
 
@@ -177,7 +184,7 @@ It doesn't matter so much as long as it's transparent and easily discoverable fo
 
 <Invert>
 
-![](../../images/sponsorship-home.png)
+![Screenshot of Notion Sponsorship Homepage](../../images/sponsorship-home.png)
 
 # Demo
 
@@ -191,7 +198,7 @@ Switch from deck into Notion and give demonstration of sponsorship homepage from
 
 ---
 
-## Activity
+# Activity
 
 ---
 
@@ -218,16 +225,17 @@ Some ideas:
 
 ---
 
-## Presentations
+# Presentations
 
 ---
 
-## Thank you! 
+# Thank you! 
 
-*Stay in touch!*
+_Stay in touch!_
+
 - [Github/krubenok](https://github.com/krubenok)
 - [Twitter/@krubenok](https://twitter.com/krubenok)
 - [kyle@rubenok.ca](mailto:kyle@rubenok.ca)
 - [mchacks.ca](https://mchacks.ca)
-- [blog.rubenok.ca/posts/hackcon-vii](https://blog.rubenok.ca/posts/hackcon-vii)
+- [nerd-ramblings.com/decks/hackcon-vii](nerd-ramblings.com/decks/hackcon-vii)
 
