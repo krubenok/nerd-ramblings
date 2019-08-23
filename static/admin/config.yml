@@ -1,0 +1,4 @@
+backend:
+  name: github
+  repo: krubenok/nerd-ramblings
+  branch: master # Branch to update (optional; defaults to master)
