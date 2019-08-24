@@ -11,6 +11,7 @@ export default ({
     div style = {
         {
             width: '90vw',
+            height: '70vh',
         }
     } > {
         children
