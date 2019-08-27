@@ -5957,12 +5957,12 @@ gatsby-plugin-theme-ui@^0.2.6:
   resolved "https://registry.yarnpkg.com/gatsby-plugin-theme-ui/-/gatsby-plugin-theme-ui-0.2.34.tgz#bbc5af48849ff4be88cd9ef6b66439768da80966"
   integrity sha512-y9QrtMEhalB1mJ7E0y8UW9sffrTJ4W/dj0631k0LfUxEeKs2gA3VJf4yuJ+MOu4RloE9XDC04csM6zOy0tz7kA==
 
-gatsby-plugin-typography@^2.3.3:
-  version "2.3.4"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-typography/-/gatsby-plugin-typography-2.3.4.tgz#cd183c83c1db4afc479284645c3f4bc815dc20b7"
-  integrity sha512-LZBHmio7OF7S7hj5JHwJ7N4R1EHUnjqQiAhzs1OKX4L7DOYwsFTFGgA8p0i/nmo57kPzuQ2LbQxYcGFVQSFTUA==
+gatsby-plugin-typography@^2.3.5:
+  version "2.3.5"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-typography/-/gatsby-plugin-typography-2.3.5.tgz#8fde4e48ae3f9648666de0035c325c50ad4b0673"
+  integrity sha512-Pmt1BKDesqo44mmvA5M/NXwg2mH4V23mfb72Hwhlg6VHzOHA78F5jyahavejnEuSnl84WyLyKhJ6lxfcEdYh+w==
   dependencies:
-    "@babel/runtime" "^7.0.0"
+    "@babel/runtime" "^7.5.5"
 
 gatsby-react-router-scroll@^2.1.6:
   version "2.1.6"
