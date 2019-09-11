@@ -26,7 +26,7 @@
     "gatsby-theme-mdx-deck": "^3.0.11",
     "gatsby-transformer-remark": "^2.6.22",
     "gatsby-transformer-sharp": "^2.2.14",
-    "mdx-deck": "^3.0.10",
+    "mdx-deck": "^3.0.11",
     "netlify-cms": "^2.9.7",
     "prismjs": "^1.17.1",
     "react": "^16.9.0",
