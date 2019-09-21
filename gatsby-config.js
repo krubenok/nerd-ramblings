@@ -2,8 +2,8 @@ module.exports = {
   siteMetadata: {
     title: `Nerd Ramblings`,
     author: `Kyle Rubenok`,
-    description: `A starter blog demonstrating what Gatsby can do.`,
-    siteUrl: `https://gatsby-starter-blog-demo.netlify.com/`,
+    description: `Written by Kyle Rubenok a Computer Science student studying at McGill University.`,
+    siteUrl: `http://nerd-ramblings.com/`,
     social: {
       twitter: `krubenok`,
     },
@@ -58,8 +58,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Gatsby Starter Blog`,
-        short_name: `GatsbyJS`,
+        name: `Nerd Ramblings`,
+        short_name: `Nerd Ramblings`,
         start_url: `/`,
         background_color: `#ffffff`,
         theme_color: `#663399`,

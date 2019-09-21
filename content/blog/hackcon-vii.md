@@ -5,7 +5,7 @@ description: A few weeks ago, I have the pleasure of attending and speaking at M
 ---
 A few weeks ago, I have the pleasure of attending and speaking at [MLH's Hackcon VII](https://hackcon.mlh.io). This was my second time attending the conferencing and this time, having semi-retired out of the McHacks organizing time I was much more focused on making connections and appreciating the people there than frantically attending every talk I could. The hallway track turned more into the campfire track and before I knew it we were already packing our bags to head home.
 
-![Group shot of myself with organizers from various events ](./the-rebellion.png)
+![Group shot of myself with organizers from various events ](../assets/the-rebellion.png)
 
 # Why Hackcon
 
@@ -15,7 +15,7 @@ After attending last year, I was pretty certain that I wanted to come back as a 
 
 This year, I decided that I wanted to speak at Hackcon instead of just attending. After a little bit of thinking on which parts of hackcon planning I really had things to talk about, I decided I wanted to talk about project managing in a hackcon context and some best practices that I developed along with the process we employed for McHacks 6.
 
-![The audience of my talk ](./talk-audience.png "By the time the talk started, it was standing room only with people sitting on the flood! 😲")
+![The audience of my talk ](../assets/talk-audience.png "By the time the talk started, it was standing room only with people sitting on the flood! 😲")
 
 My talk went over a bunch of the details of how we project managed the entirety of the McHacks 6 organization using systems and carefully selected tooling to maximize productivity and minimize time spent waiting on others.
 
