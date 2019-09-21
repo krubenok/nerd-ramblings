@@ -26,3 +26,5 @@ collections:
     slug: "{{slug}}"
     editor:
       preview: false
+    fields:
+      - { label: "Body", name: "body", widget: "markdown" }
