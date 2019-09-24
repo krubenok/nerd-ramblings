@@ -6251,10 +6251,10 @@ gatsby-telemetry@^1.1.25:
     stack-utils "1.0.2"
     uuid "3.3.3"
 
-gatsby-theme-mdx-deck@^3.0.11:
-  version "3.0.11"
-  resolved "https://registry.yarnpkg.com/gatsby-theme-mdx-deck/-/gatsby-theme-mdx-deck-3.0.11.tgz#d7d6af7aa9f56227d77b0ed4596e31c67e3dd816"
-  integrity sha512-yJBT6NhenK/Jvkp+quq9oD7sfxOhYmiTKW9+/CDcErwjoF2Ho1kL6liLGA0L8vO7umny7heRsnMYwg2vxI8AIQ==
+gatsby-theme-mdx-deck@^3.0.11, gatsby-theme-mdx-deck@^3.0.13:
+  version "3.0.13"
+  resolved "https://registry.yarnpkg.com/gatsby-theme-mdx-deck/-/gatsby-theme-mdx-deck-3.0.13.tgz#822763288db67392b7bfcf39e5fce020f9610359"
+  integrity sha512-oeorRdFk3EbWrOMGaXgcFPArvYR7rd4Ioryj14nGg1CqWvSfJMB3vZtcBCWpfLSbIw2j7ZWBFL4GL14xvBPNxw==
   dependencies:
     "@emotion/core" "^10.0.14"
     "@mdx-deck/themes" "^3.0.8"
