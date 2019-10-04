@@ -32,7 +32,7 @@
     "netlify-cms-app": "^2.9.7",
     "prismjs": "^1.17.1",
     "react": "^16.9.0",
-    "react-dom": "^16.9.0",
+    "react-dom": "^16.10.2",
     "react-helmet": "^5.2.1",
     "react-typography": "^0.16.19",
     "typeface-merriweather": "0.0.72",
