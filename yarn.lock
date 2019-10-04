@@ -892,7 +892,7 @@
     "@babel/plugin-transform-react-jsx-self" "^7.0.0"
     "@babel/plugin-transform-react-jsx-source" "^7.0.0"
 
-"@babel/runtime@^7.0.0", "@babel/runtime@^7.1.2", "@babel/runtime@^7.2.0", "@babel/runtime@^7.3.1", "@babel/runtime@^7.3.4", "@babel/runtime@^7.4.2", "@babel/runtime@^7.4.3", "@babel/runtime@^7.4.5", "@babel/runtime@^7.6.0", "@babel/runtime@^7.6.2":
+"@babel/runtime@^7.0.0", "@babel/runtime@^7.1.2", "@babel/runtime@^7.2.0", "@babel/runtime@^7.3.1", "@babel/runtime@^7.3.4", "@babel/runtime@^7.4.2", "@babel/runtime@^7.4.3", "@babel/runtime@^7.4.5", "@babel/runtime@^7.6.2":
   version "7.6.2"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.6.2.tgz#c3d6e41b304ef10dcf13777a33e7694ec4a9a6dd"
   integrity sha512-EXxN64agfUqqIGeEjI5dL5z0Sw0ZwWo1mLTi4mQowCZ42O59b7DRpZAnTC6OqdF28wMBMFKNb/4uFGrVaigSpg==
@@ -6200,10 +6200,10 @@ gatsby-react-router-scroll@^2.1.11:
     scroll-behavior "^0.9.10"
     warning "^3.0.0"
 
-gatsby-remark-copy-linked-files@^2.1.23:
-  version "2.1.23"
-  resolved "https://registry.yarnpkg.com/gatsby-remark-copy-linked-files/-/gatsby-remark-copy-linked-files-2.1.23.tgz#dca8794974ed7ec0693ddbde9da67783beb629ec"
-  integrity sha512-g6Ld5t1w+h1c9s5S6Xen3kICO3Ur/BP3+02siFgaI0pWRyi4zpiZL63P8KBUB5fKVVl/UaPMWs/mJRSOYIENVg==
+gatsby-remark-copy-linked-files@^2.1.24:
+  version "2.1.24"
+  resolved "https://registry.yarnpkg.com/gatsby-remark-copy-linked-files/-/gatsby-remark-copy-linked-files-2.1.24.tgz#ae2df5393fe5026509c3bbfd2c7d1f0a351572cb"
+  integrity sha512-B5uoYZR1yVFaCOxZgWe8mAyadVia7ODqnPEZ2EuS8obRDUTTNJTvX1AdYdqn9RVe3vUFjj43Vmu4RxQ8R9Ty8A==
   dependencies:
     "@babel/runtime" "^7.6.2"
     cheerio "^1.0.0-rc.3"
