@@ -58,4 +58,7 @@ While Notion has been excellent at centralizing our information and greatly redu
 ## Figma
 
 For our design process, we use Figma to collaboratively design our assets and mockups together in real time. We can easily pass designs to our dev team for review and solicit feedback without having to export any assets. Previous iterations of Hackboard made heavy use of Sketch, but being able to leverage a web based app like Figma allows our design team to be cross platform and more accessible to our team. Figma’s shared styles allows for our design language, colour palette and core elements to remain consistent across designs without tedious referencing to a style guide. Thanks to their free student plan, we are able to effictively design as a team. 
+
+# Conclusion
+
 HackMcGill is an organization that is constantly evolving and we are always looking to refine our process. So far, this configuration seems to be working well for us, but we are always reviewing and learning from our progress to be the best team we can be. Keep an eye out for part two that will outline the tools that we use to manage our social media, public communications as well as our sponsorship workflow and CRM.
