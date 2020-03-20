@@ -30,7 +30,7 @@
     "mdx-deck": "^3.0.13",
     "netlify-cms": "^2.10.34",
     "netlify-cms-app": "^2.11.32",
-    "prismjs": "^1.17.1",
+    "prismjs": "^1.19.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-helmet": "^5.2.1",
