@@ -54,9 +54,14 @@ const Bio = () => {
         }}
       />
       <p>
-        Written by <strong>{author}</strong> a Computer Science student studying at McGill University.
+        Written by <strong>{author}</strong> a Computer Science student studying
+        at McGill University.
         {` `}
-        <a href={`https://twitter.com/${social.twitter}`} target="_blank">
+        <a
+          href={`https://twitter.com/${social.twitter}`}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           You should follow him on Twitter
         </a>
       </p>
