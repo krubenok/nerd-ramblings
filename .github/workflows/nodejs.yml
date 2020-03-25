@@ -1,16 +1,12 @@
-name: Gatsby Build
-
 on: push
-
+name: Build Gatsby Site
 jobs:
   build:
+    name: Build Gatsby Site
     runs-on: ubuntu-latest
-
     steps:
-      - uses: actions/checkout@v1
-      - name: Use Node.js
-        uses: actions/setup-node@v1
-      - name: npm install, build, and test
-        run: |
-          npm install
-          gatsby build
+      - uses: actions/checkout@master
+      - name: Build Gatsby Site
+        uses: jzweifel/gatsby-cli-github-action@master
+        with:
+          gatsby-arg: build
