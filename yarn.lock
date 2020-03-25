@@ -6913,7 +6913,7 @@ gatsby-cli@^2.11.1:
     ink "^2.7.1"
     ink-spinner "^3.0.1"
 
-gatsby-core-utils@^1.0.28, gatsby-core-utils@^1.0.31, gatsby-core-utils@^1.0.32, gatsby-core-utils@^1.1.1:
+gatsby-core-utils@^1.0.31, gatsby-core-utils@^1.0.32, gatsby-core-utils@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/gatsby-core-utils/-/gatsby-core-utils-1.1.1.tgz#3ebe4c6fe277ef8d91e1b708bd65ef4f7dc0928b"
   integrity sha512-EboPcBx37YQVUKN9JH753S54nDxjRmOefbR0i08KTmaVgQ1lZnDXJr8JfrImmMqupZlOkPQX1mWlXfp+r1jGhA==
@@ -7069,14 +7069,14 @@ gatsby-plugin-netlify-cms@^4.2.0:
     netlify-identity-widget "^1.5.6"
     webpack "^4.42.0"
 
-gatsby-plugin-offline@^3.0.35:
-  version "3.0.35"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-offline/-/gatsby-plugin-offline-3.0.35.tgz#9b074a012599b9a4f3adb9c57ce1d87fdf8d0aad"
-  integrity sha512-ndOnB+onKeiWmVOfc7UCDHJ9lbfvrixdk1U2KwW0nwO3dUvjElBxPTclXFgpzmfZqH2Fb8dx8MqoH+ooR7YdGA==
+gatsby-plugin-offline@^3.1.1:
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-offline/-/gatsby-plugin-offline-3.1.1.tgz#acbab9fbc0eb0a4fff60097827117568564049f8"
+  integrity sha512-unW96BsWt5Hw5Mv8pcatv5F7rvqUgJnHxUAMVesbZUujX+W5EfCTr34hXqBTGyIdpxiKWC+BzwADLa8nZ+4PRw==
   dependencies:
-    "@babel/runtime" "^7.7.6"
+    "@babel/runtime" "^7.8.7"
     cheerio "^1.0.0-rc.3"
-    gatsby-core-utils "^1.0.28"
+    gatsby-core-utils "^1.1.1"
     glob "^7.1.6"
     idb-keyval "^3.2.0"
     lodash "^4.17.15"
