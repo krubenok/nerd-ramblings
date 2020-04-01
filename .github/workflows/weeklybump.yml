@@ -2,6 +2,10 @@ on:
   schedule:
     # * is a special character in YAML so you have to quote this string
     - cron: "* 6 * * SUN"
+  push:
+    branches:
+      - develop
+name: Weekly Bump
 
 jobs:
   update-deps:
