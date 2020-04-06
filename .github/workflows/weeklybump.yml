@@ -1,30 +1,15 @@
+name: Pull Request on Branch Push
 on:
-  push
-  # schedule:
-  #   # * is a special character in YAML so you have to quote this string
-  #   - cron: "* 6 * * SUN"
-
+  schedule:
+    - cron: "* 6 * * SUN"
 jobs:
-  update-deps:
+  auto-pull-request:
+    name: PullRequestAction
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-      - name: Set output variables
-        id: vars
-        run: |
-          echo ::set-output name=pr_title::"Weekly Update $(date +%d-%m-%Y)"
-          echo ::set-output name=pr_body::"This PR was auto-generated on $(date +%d-%m-%Y)"
-      - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v2
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          commit-message: update dependencies
-          title: ${{ steps.vars.outputs.pr_title }}
-          body: ${{ steps.vars.outputs.pr_body }}
-          labels: automated pr
-          branch: develop
-      - name: Check outputs
-        run: |
-          echo "Pull Request Number - ${{ env.PULL_REQUEST_NUMBER }}"
-          echo "Pull Request Number - ${{ steps.cpr.outputs.pr_number }}"
+      - name: pull-request-action
+        uses: vsoch/pull-request-action@1.0.5
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PULL_REQUEST_BRANCH: "master"
+          PULL_REQUEST_FROM_BRANCH: "develop"
