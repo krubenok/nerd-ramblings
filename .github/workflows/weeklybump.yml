@@ -1,11 +1,7 @@
-# on:
-# push
-# schedule:
-# is a special character in YAML so you have to quote this string
-#   - cron: "* 6 * * SUN"
-
 name: Pull Request on Branch Push
-on: push
+on:
+  schedule:
+    - cron: "* 6 * * SUN"
 jobs:
   auto-pull-request:
     name: PullRequestAction
