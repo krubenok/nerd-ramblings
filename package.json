@@ -29,7 +29,7 @@
     "gatsby-transformer-sharp": "^2.4.4",
     "mdx-deck": "^3.0.13",
     "netlify-cms": "^2.10.41",
-    "netlify-cms-app": "^2.12.3",
+    "netlify-cms-app": "^2.12.5",
     "prismjs": "^1.20.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
