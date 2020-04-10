@@ -1,28 +1,23 @@
 ---
 title: Backing Up 23.6TB to the Cloud
 date: "2019-06-23T23:51:27.043Z"
-description: >-
-  I'm a data hoarder and I have a problem. My local storage infrastructure built
-  on FreeNAS has been rock solid but unfortunately as my local capacity has
-  grown, I had issues scaling an appropriate offsite backup. Today, I'm solving
-  this.
 ---
 
-I'm a data hoarder and I have a problem. My local storage infrastructure built on FreeNAS has been rock solid but unfortunately as my local capacity has grown, I had issues scaling an appropriate offsite backup. Today, I'm solving this. 
+I'm a data hoarder and I have a problem. My local storage infrastructure built on FreeNAS has been rock solid but unfortunately as my local capacity has grown, I had issues scaling an appropriate offsite backup. Today, I'm solving this.
 
-# Evaluating the Market
+## Evaluating the Market
 
 The cloud backup market is not short of options, unfortunately for one reason or another many of them fell short of my needs:
 
-## Crashplan
+### Crashplan
 
 A long time ago, I was using Crashplan's unlimited plan. The price point for unlimited storage was great (~10$ a month) and it had a client that ran on linux  or in a docker container. Unfortunately, that compatibility came from the client being written in Java 😭. This means that the backups were incredibly slow and inefficient. Plus, they shut the service down. 
 
-## Backblaze and B2
+### Backblaze and B2
 
 Next, I moved to Backblaze, this was an _awesome_ solution for my laptop, but unfortunately I couldn't get it to work for the rest of my servers. Their B2 offering, (similar to Amazon S3, Google Cloud Storage, Azure Storage, etc...) would have worked well on my Linux and BSD based servers, but the cost ruled that out pretty quickly at 20+ TB. 
 
-## Azure, AWS, Google Cloud, etc...
+### Azure, AWS, Google Cloud, etc...
 
 All of these would have been awesome solutions with software like [Duplicati](https://www.duplicati.com) but unfortunately, these enterprise clouds get pretty expensive on a consumer budget. 
 
@@ -32,7 +27,7 @@ _N.B. These prices are for Google, Microsoft and Amazon's hot tier storage, cold
 
 So yeah, I'm not spending that much on backups. 
 
-# The Solution
+## The Solution
 
 Browsing [r/Homelab](https://reddit.com/r/homelab/) and [r/Datahoarder](https://reddit.com/r/datahoarder/) for a while led me to a potential solution. Google Drive. 
 
