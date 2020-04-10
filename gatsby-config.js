@@ -1,25 +1,4 @@
 module.exports = {
-  plugins: [
-    {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        trackingId: `UA-69494366-1`,
-      },
-    },
-    {
-      resolve: "gatsby-theme-mdx-deck",
-      options: {
-        // enable or disable gatsby-plugin-mdx
-        mdx: true,
-        // source directory
-        contentPath: "content/decks",
-        // base path for routes generate by this theme
-        basePath: "/decks",
-      },
-    },
-    `@pauliescanlon/gatsby-mdx-embed`,
-    `gatsby-theme-blog`,
-  ],
   // Customize your site metadata:
   siteMetadata: {
     title: `Nerd Ramblings`,
@@ -50,4 +29,34 @@ module.exports = {
       },
     ],
   },
+  plugins: [
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: `UA-69494366-1`,
+      },
+    },
+    {
+      resolve: "gatsby-theme-mdx-deck",
+      options: {
+        // enable or disable gatsby-plugin-mdx
+        mdx: true,
+        // source directory
+        contentPath: "content/decks",
+        // base path for routes generate by this theme
+        basePath: "/decks",
+      },
+    },
+    `@pauliescanlon/gatsby-mdx-embed`,
+    `gatsby-theme-blog`,
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Nerd Ramblings by Kyle Rubenok`,
+        short_name: `Nerd Ramblings`,
+        start_url: `/`,
+        icon: `./content/assets/avatar.png`,
+      },
+    },
+  ],
 }
