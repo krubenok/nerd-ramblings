@@ -17,24 +17,36 @@ module.exports = {
         basePath: "/decks",
       },
     },
-    {
-      resolve: `gatsby-theme-blog`,
-      options: {},
-    },
+    `@pauliescanlon/gatsby-mdx-embed`,
+    `gatsby-theme-blog`,
   ],
   // Customize your site metadata:
   siteMetadata: {
     title: `Nerd Ramblings`,
     author: `Kyle Rubenok`,
     description: `Written by Kyle Rubenok a Computer Science student studying at McGill University. Previously President at McGill CSUS, Co-Director at HackMcGill and Founding Partner at Penguinleaf. Incoming PM at Microsoft. You should follow him on Twitter`,
+    menuLinks: [
+      {
+        name: `Blog`,
+        url: `/`,
+      },
+      {
+        name: `About`,
+        url: `/about`,
+      },
+    ],
     social: [
       {
-        name: `twitter`,
+        name: `Twitter`,
         url: `https://twitter.com/krubenok`,
       },
       {
-        name: `github`,
+        name: `Github`,
         url: `https://github.com/krubenok`,
+      },
+      {
+        name: `LinkedIn`,
+        url: `https://linkedin.com/in/krubenok`,
       },
     ],
   },

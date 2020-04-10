@@ -9,6 +9,7 @@
     "clean": "gatsby clean"
   },
   "dependencies": {
+    "@pauliescanlon/gatsby-mdx-embed": "0.0.17",
     "gatsby": "^2.20.12",
     "gatsby-plugin-google-analytics": "^2.2.2",
     "gatsby-theme-blog": "^1.4.12",
