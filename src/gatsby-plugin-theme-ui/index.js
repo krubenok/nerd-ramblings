@@ -41,8 +41,8 @@ const headingStyles = {
 const light_background = `#fafafa`
 const light_purple = `#a625a4`
 const light_blue = `#4078f2`
-const light_green = `#51a14f`
-const light_brown = `#986802`
+// const light_green = `#51a14f`
+// const light_brown = `#986802`
 const light_grey = `#383a42`
 const light_secondary_grey = `#a0a1a8`
 
@@ -50,8 +50,8 @@ const light_secondary_grey = `#a0a1a8`
 const dark_background = `#282c34`
 const dark_purple = `#c678dd`
 const dark_blue = `#61afef`
-const dark_green = `#98c379`
-const dark_brown = `#d19a66`
+// const dark_green = `#98c379`
+// const dark_brown = `#d19a66`
 const dark_grey = `#abb2bf`
 const dark_secondary_grey = `#5c6270`
 

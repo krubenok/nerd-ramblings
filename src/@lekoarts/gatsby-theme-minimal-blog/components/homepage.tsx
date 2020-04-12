@@ -7,7 +7,7 @@ import Hero from "@lekoarts/gatsby-theme-minimal-blog/src/texts/hero"
 // @ts-ignore
 import Bottom from "@lekoarts/gatsby-theme-minimal-blog/src/texts/bottom"
 import Title from "@lekoarts/gatsby-theme-minimal-blog/src/components/title"
-import Listing from "@lekoarts/gatsby-theme-minimal-blog/src/components/listing"
+import Listing from "./listing"
 import List from "@lekoarts/gatsby-theme-minimal-blog/src/components/list"
 import useMinimalBlogConfig from "@lekoarts/gatsby-theme-minimal-blog/src/hooks/use-minimal-blog-config"
 import replaceSlashes from "@lekoarts/gatsby-theme-minimal-blog/src/utils/replaceSlashes"
