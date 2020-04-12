@@ -7,7 +7,7 @@ module.exports = {
     siteDescription: `Written by Kyle Rubenok a Computer Science student studying at McGill University. Previously President at McGill CSUS, Co-Director at HackMcGill and Founding Partner at Penguinleaf. Incoming PM at Microsoft.`,
     siteLanguage: `en`,
     siteImage: `/banner.jpg`,
-    author: `@krubenok`,
+    author: `Kyle Rubenok`,
   },
   plugins: [
     {
