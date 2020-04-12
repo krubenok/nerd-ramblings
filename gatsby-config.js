@@ -1,12 +1,13 @@
-require(`dotenv`).config({
-  path: `.env`,
-})
-
 module.exports = {
-  // Customize your site metadata:
   siteMetadata: {
-    siteTitleAlt: `Nerd Ramblings`,
-    author: `Kyle Rubenok`,
+    siteTitle: `Nerd Ramblings`,
+    siteTitleAlt: `Nerd Ramblings by Kyle Rubenok`,
+    siteHeadline: `Nerd Ramblings by Kyle Rubenok`,
+    siteUrl: `https://nerd-ramblings.com/`,
+    siteDescription: `Written by Kyle Rubenok a Computer Science student studying at McGill University. Previously President at McGill CSUS, Co-Director at HackMcGill and Founding Partner at Penguinleaf. Incoming PM at Microsoft.`,
+    siteLanguage: `en`,
+    siteImage: `/banner.jpg`,
+    author: `@krubenok`,
   },
   plugins: [
     {
@@ -23,6 +24,7 @@ module.exports = {
     {
       resolve: `@lekoarts/gatsby-theme-minimal-blog`,
       options: {
+        showLineNumbers: false,
         navigation: [
           {
             title: `Blog`,
