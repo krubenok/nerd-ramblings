@@ -32,7 +32,7 @@ const Homepage = ({ posts }: PostsProps) => {
 
   return (
     <Layout>
-      <section sx={{ mb: [5, 6, 7], p: { fontSize: [1, 2, 3], mt: 2 } }}>
+      <section sx={{ mb: [0, 3, 5], p: { fontSize: [1, 2, 2], mt: 1 } }}>
         <Hero />
       </section>
       <Title text="Latest Posts">
@@ -40,7 +40,7 @@ const Homepage = ({ posts }: PostsProps) => {
           Read all posts
         </Link>
       </Title>
-      <Listing posts={posts} sx={{ mt: [4, 5] }} />
+      <Listing posts={posts} />
       {/* <Listing posts={posts} showTags={true} /> */}
       <List>
         <Bottom />
