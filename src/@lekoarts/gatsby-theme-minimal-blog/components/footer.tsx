@@ -21,12 +21,26 @@ const Footer = () => {
       }}
     >
       <div>
-        &copy; {new Date().getFullYear()} by {author}. All rights reserved.
+        &copy; {new Date().getFullYear()} by {author}. All rights reserved. {" "}
+        <Styled.a
+          aria-label="RSS"
+          href="/rss.xml"
+          sx={{textDecoration: `underline`}}
+        >
+          RSS
+        </Styled.a>
       </div>
       <div>
-        💻 with 💗 on {" "}
+        💻 with 💗 and {" "}
         <Styled.a
-          aria-label="Link to the theme author's website"
+          aria-label="Theme Repository"
+          href="https://github.com/LekoArts/gatsby-starter-minimal-blog"
+        >
+          🎨
+        </Styled.a>
+        {" "} on {" "}
+        <Styled.a
+          aria-label="Github Repository"
           href="https://github.com/krubenok/nerd-ramblings"
         >
           🐙
