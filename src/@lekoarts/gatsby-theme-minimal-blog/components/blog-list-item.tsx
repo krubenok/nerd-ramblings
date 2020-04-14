@@ -26,7 +26,7 @@ const BlogListItem = ({ post, showTags = true }: BlogListItemProps) => (
     <Styled.a
       as={Link}
       to={post.slug}
-      sx={{ fontSize: [1, 2, 3], color: `text` }}
+      sx={{ fontSize: [1, 2, 3], color: `text`, textDecoration: `underline` }}
     >
       {post.title}
     </Styled.a>
@@ -50,11 +50,13 @@ const BlogListItem = ({ post, showTags = true }: BlogListItemProps) => (
     </p>
     <p>
       <span>{post.excerpt}</span>
+      {"  "}
       <Styled.a
         as={Link}
         to={post.slug}
+        sx={{textDecoration: `underline`}}
       >
-        {" "}Read more...
+        Read more...
       </Styled.a>
     </p>
   </Box>
