@@ -31,7 +31,7 @@
     "gatsby-theme-mdx-deck": "^3.1.0",
     "gatsby-transformer-remark": "^2.7.3",
     "mdx-deck": "^3.1.0",
-    "netlify-cms-app": "^2.12.9",
+    "netlify-cms-app": "^2.12.10",
     "react": "^16.9.0",
     "react-dom": "^16.13.1"
   },
