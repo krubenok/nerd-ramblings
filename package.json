@@ -37,6 +37,6 @@
   },
   "devDependencies": {
     "cross-env": "^7.0.2",
-    "gatsby-plugin-webpack-bundle-analyser-v2": "^1.1.8"
+    "gatsby-plugin-webpack-bundle-analyser-v2": "^1.1.9"
   }
 }
