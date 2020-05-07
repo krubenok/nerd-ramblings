@@ -25,7 +25,7 @@
     "gatsby-plugin-netlify": "^2.3.2",
     "gatsby-plugin-netlify-cms": "^4.3.1",
     "gatsby-plugin-offline": "^3.2.1",
-    "gatsby-plugin-sharp": "^2.6.1",
+    "gatsby-plugin-sharp": "^2.6.2",
     "gatsby-plugin-sitemap": "^2.4.2",
     "gatsby-remark-images": "^3.3.1",
     "gatsby-theme-mdx-deck": "^3.1.0",
