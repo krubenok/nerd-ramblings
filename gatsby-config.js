@@ -38,8 +38,8 @@ module.exports = {
           },
           {
             title: `Gear`,
-            slug: `/gear`
-          }
+            slug: `/gear`,
+          },
         ],
         externalLinks: [
           {
@@ -95,12 +95,12 @@ module.exports = {
     `gatsby-remark-images`,
     `gatsby-plugin-netlify-cms`,
     {
-    resolve: `gatsby-source-filesystem`,
-    options: {
-      name: `markdown-pages`,
-      path: `${__dirname}/content/posts`,
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `markdown-pages`,
+        path: `${__dirname}/content/posts`,
+      },
     },
-  },
     {
       resolve: `gatsby-transformer-remark`,
       options: {

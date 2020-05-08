@@ -1,3 +1,6 @@
 {
-    "workbench.tree.indent": 16
+    "workbench.tree.indent": 16,
+    "cSpell.enableFiletypes": [
+        "markdown"
+    ]
 }
