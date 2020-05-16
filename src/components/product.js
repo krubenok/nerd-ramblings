@@ -31,7 +31,8 @@ const ProductCaption = styled.div`
     }
     h4 {
         margin: 0;
-        word-break: break-word
+        word-break: break-word;
+        font-weight: 400;
     }
 `
 
