@@ -1,5 +1,13 @@
 import React from "react"
-import styled from '@emotion/styled'
+import styled from "@emotion/styled"
+
+type InsertProps = {
+    imagePath: string
+    alt: string
+    mainTitle: string
+    subTitle: string
+    children: React.ReactNode
+}
 
 const ProductContainer = styled.div`
     padding: 0px 15px 0px 15px;
@@ -27,7 +35,7 @@ const ProductCaption = styled.div`
     padding: 20px 0px 20px 0px;
     h2 {
         margin: 0;
-        word-break: break-word
+        word-break: break-word;
     }
     h4 {
         margin: 0;
@@ -37,12 +45,9 @@ const ProductCaption = styled.div`
 `
 
 export default function Product(props) {
-    
     return (
         <ProductContainer>
-            <ProductImage 
-                src={[props.imagePath]} 
-                alt={props.mainTitle} />
+            <ProductImage src={props.imagePath} alt={props.mainTitle} />
             <ProductCaption>
                 <h2>{props.mainTitle}</h2>
                 <h4>{props.subTitle}</h4>
