@@ -1,5 +1,12 @@
+import styled from "@emotion/styled"
 import React from "react"
-import styled from '@emotion/styled'
+
+type ProductProps = {
+    imagePath: string
+    mainTitle: string
+    subTitle: string
+    children: React.ReactNode
+}
 
 const ProductContainer = styled.div`
     padding: 0px 15px 0px 15px;
@@ -27,25 +34,25 @@ const ProductCaption = styled.div`
     padding: 20px 0px 20px 0px;
     h2 {
         margin: 0;
-        word-break: break-word
+        word-break: break-word;
     }
     h4 {
         margin: 0;
-        word-break: break-word
+        word-break: break-word;
+        font-weight: 400;
     }
 `
 
-export default function Product(props) {
-    
+export default function Product(props: ProductProps) {
+    const { imagePath, mainTitle, subTitle, children } = props
+
     return (
         <ProductContainer>
-            <ProductImage 
-                src={[props.imagePath]} 
-                alt={props.mainTitle} />
+            <ProductImage src={imagePath} alt={mainTitle} />
             <ProductCaption>
-                <h2>{props.mainTitle}</h2>
-                <h4>{props.subTitle}</h4>
-                <div>{props.children}</div>
+                <h2>{mainTitle}</h2>
+                <h4>{subTitle}</h4>
+                <div>{children}</div>
             </ProductCaption>
         </ProductContainer>
     )

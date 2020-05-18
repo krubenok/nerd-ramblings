@@ -1,195 +1,193 @@
-
-import { merge } from "theme-ui"
 import { tailwind } from "@theme-ui/presets"
+import { merge } from "theme-ui"
 
 // One Light Colours
-const light_background = `#fafafa`
-const light_purple = `#a625a4`
-const light_blue = `#4078f2`
-// const light_green = `#51a14f`
-// const light_brown = `#986802`
-const light_grey = `#383a42`
-const light_secondary_grey = `#a0a1a8`
+const lightBackground = `#fafafa`
+const lightPurple = `#a625a4`
+const lightBlue = `#4078f2`
+// const lightGreen = `#51a14f`
+// const lightBrown = `#986802`
+const lightGrey = `#383a42`
+const lightSecondaryGrey = `#a0a1a8`
 
 // One Dark Colours
-const dark_background = `#282c34`
-const dark_purple = `#c678dd`
-const dark_blue = `#61afef`
-// const dark_green = `#98c379`
-// const dark_brown = `#d19a66`
-const dark_grey = `#abb2bf`
-const dark_secondary_grey = `#5c6270`
-
+const darkBackground = `#282c34`
+const darkPurple = `#c678dd`
+const darkBlue = `#61afef`
+// const darkGreen = `#98c379`
+// const darkBrown = `#d19a66`
+const darkGrey = `#abb2bf`
+const darkSecondaryGrey = `#5c6270`
 
 const theme = merge(tailwind, {
-  useColorSchemeMediaQuery: true,
-  useCustomProperties: true,
-  colors: {
-    primary: light_blue,
-    text: light_grey,
-    secondary: light_blue,
-    toggleIcon: dark_background,
-    background: light_background,
-    heading: light_purple,
-    divide: light_secondary_grey,
-    muted: light_secondary_grey,
-    modes: {
-      dark: {
-        primary: dark_blue,
-        text: dark_grey,
-        secondary: dark_blue,
-        toggleIcon: light_background,
-        background: dark_background,
-        heading: dark_purple,
-        divide: dark_secondary_grey,
-        muted: dark_secondary_grey,
-      },
+    useColorSchemeMediaQuery: true,
+    useCustomProperties: true,
+    colors: {
+        primary: lightBlue,
+        text: lightGrey,
+        secondary: lightBlue,
+        toggleIcon: darkBackground,
+        background: lightBackground,
+        heading: lightPurple,
+        divide: lightSecondaryGrey,
+        muted: lightSecondaryGrey,
+        modes: {
+            dark: {
+                primary: darkBlue,
+                text: darkGrey,
+                secondary: darkBlue,
+                toggleIcon: lightBackground,
+                background: darkBackground,
+                heading: darkPurple,
+                divide: darkSecondaryGrey,
+                muted: darkSecondaryGrey,
+            },
+        },
     },
-  },
-  fonts: {
-    body: `"IBM Plex Sans", -apple-system, BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"`,
-  },
-  styles: {
-    root: {
-      color: `text`,
-      backgroundColor: `background`,
-      margin: 0,
-      padding: 0,
-      boxSizing: `border-box`,
-      textRendering: `optimizeLegibility`,
+    fonts: {
+        body: `"IBM Plex Sans", -apple-system, BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"`,
     },
-    p: {
-      fontSize: [1, 1, 2],
-      letterSpacing: `-0.003em`,
-      lineHeight: `body`,
-      "--baseline-multiplier": 0.179,
-      "--x-height-multiplier": 0.35,
+    styles: {
+        root: {
+            color: `text`,
+            backgroundColor: `background`,
+            margin: 0,
+            padding: 0,
+            boxSizing: `border-box`,
+            textRendering: `optimizeLegibility`,
+        },
+        p: {
+            fontSize: [1, 1, 2],
+            letterSpacing: `-0.003em`,
+            lineHeight: `body`,
+            "--baseline-multiplier": 0.179,
+            "--x-height-multiplier": 0.35,
+        },
+        ul: {
+            li: {
+                fontSize: [1, 1, 2],
+                letterSpacing: `-0.003em`,
+                lineHeight: `body`,
+                "--baseline-multiplier": 0.179,
+                "--x-height-multiplier": 0.35,
+            },
+        },
+        ol: {
+            li: {
+                fontSize: [1, 1, 2],
+                letterSpacing: `-0.003em`,
+                lineHeight: `body`,
+                "--baseline-multiplier": 0.179,
+                "--x-height-multiplier": 0.35,
+            },
+        },
+        h1: {
+            variant: `text.heading`,
+            fontSize: [5, 6, 7],
+            mt: 2,
+        },
+        h2: {
+            variant: `text.heading`,
+            fontSize: [4, 5, 6],
+            mt: 2,
+        },
+        h3: {
+            variant: `text.heading`,
+            fontSize: [3, 4, 5],
+            mt: 3,
+        },
+        h4: {
+            variant: `text.heading`,
+            fontSize: [2, 3, 4],
+        },
+        h5: {
+            variant: `text.heading`,
+            fontSize: [1, 2, 3],
+        },
+        h6: {
+            variant: `text.heading`,
+            fontSize: 1,
+            mb: 2,
+        },
+        blockquote: {
+            borderLeftColor: `primary`,
+            borderLeftStyle: `solid`,
+            borderLeftWidth: `6px`,
+            mx: 0,
+            pl: 4,
+            p: {
+                fontStyle: `italic`,
+            },
+        },
+        table: {
+            width: `100%`,
+            my: 4,
+            borderCollapse: `separate`,
+            borderSpacing: 0,
+            [[`th`, `td`]]: {
+                textAlign: `left`,
+                py: `4px`,
+                pr: `4px`,
+                pl: 0,
+                borderColor: `muted`,
+                borderBottomStyle: `solid`,
+            },
+        },
+        th: {
+            verticalAlign: `bottom`,
+            borderBottomWidth: `2px`,
+            color: `heading`,
+        },
+        td: {
+            verticalAlign: `top`,
+            borderBottomWidth: `1px`,
+        },
     },
-    ul: {
-      li: {
-        fontSize: [1, 1, 2],
-        letterSpacing: `-0.003em`,
-        lineHeight: `body`,
-        "--baseline-multiplier": 0.179,
-        "--x-height-multiplier": 0.35,
-      },
+    layout: {
+        container: {
+            padding: [3, 4],
+            maxWidth: `1024px`,
+        },
     },
-    ol: {
-      li: {
-        fontSize: [1, 1, 2],
-        letterSpacing: `-0.003em`,
-        lineHeight: `body`,
-        "--baseline-multiplier": 0.179,
-        "--x-height-multiplier": 0.35,
-      },
+    text: {
+        heading: {
+            fontFamily: `heading`,
+            fontWeight: `heading`,
+            lineHeight: `heading`,
+            color: `heading`,
+        },
     },
-    h1: {
-      variant: `text.heading`,
-      fontSize: [5, 6, 7],
-      mt: 2,
+    dividers: {
+        bottom: {
+            borderBottomStyle: `solid`,
+            borderBottomWidth: `1px`,
+            borderBottomColor: `divide`,
+            pb: 3,
+        },
+        top: {
+            borderTopStyle: `solid`,
+            borderTopWidth: `1px`,
+            borderTopColor: `divide`,
+            pt: 3,
+        },
     },
-    h2: {
-      variant: `text.heading`,
-      fontSize: [4, 5, 6],
-      mt: 2,
+    links: {
+        secondary: {
+            color: `secondary`,
+            textDecoration: `none`,
+            ":hover": {
+                color: `heading`,
+                textDecoration: `underline`,
+            },
+            ":focus": {
+                color: `heading`,
+            },
+        },
+        listItem: {
+            fontSize: [1, 2, 3],
+            color: `text`,
+        },
     },
-    h3: {
-      variant: `text.heading`,
-      fontSize: [3, 4, 5],
-      mt: 3,
-    },
-    h4: {
-      variant: `text.heading`,
-      fontSize: [2, 3, 4],
-    },
-    h5: {
-      variant: `text.heading`,
-      fontSize: [1, 2, 3],
-    },
-    h6: {
-      variant: `text.heading`,
-      fontSize: 1,
-      mb: 2,
-    },
-    blockquote: {
-      borderLeftColor: `primary`,
-      borderLeftStyle: `solid`,
-      borderLeftWidth: `6px`,
-      mx: 0,
-      pl: 4,
-      p: {
-        fontStyle: `italic`,
-      },
-    },
-    table: {
-      width: `100%`,
-      my: 4,
-      borderCollapse: `separate`,
-      borderSpacing: 0,
-      [[`th`, `td`]]: {
-        textAlign: `left`,
-        py: `4px`,
-        pr: `4px`,
-        pl: 0,
-        borderColor: `muted`,
-        borderBottomStyle: `solid`,
-      },
-    },
-    th: {
-      verticalAlign: `bottom`,
-      borderBottomWidth: `2px`,
-      color: `heading`,
-    },
-    td: {
-      verticalAlign: `top`,
-      borderBottomWidth: `1px`,
-    },
-  },
-  layout: {
-    container: {
-      padding: [3, 4],
-      maxWidth: `1024px`,
-    },
-  },
-  text: {
-    heading: {
-      fontFamily: `heading`,
-      fontWeight: `heading`,
-      lineHeight: `heading`,
-      color: `heading`,
-    },
-  },
-  dividers: {
-    bottom: {
-      borderBottomStyle: `solid`,
-      borderBottomWidth: `1px`,
-      borderBottomColor: `divide`,
-      pb: 3,
-    },
-    top: {
-      borderTopStyle: `solid`,
-      borderTopWidth: `1px`,
-      borderTopColor: `divide`,
-      pt: 3,
-    },
-  },
-  links: {
-    secondary: {
-      color: `secondary`,
-      textDecoration: `none`,
-      ":hover": {
-        color: `heading`,
-        textDecoration: `underline`,
-      },
-      ":focus": {
-        color: `heading`,
-      },
-    },
-    listItem: {
-      fontSize: [1, 2, 3],
-      color: `text`,
-    },
-  },
 })
 
 export default theme
