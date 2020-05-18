@@ -1,6 +1,6 @@
 /** @jsx jsx */
-import { jsx, Styled } from "theme-ui"
 import useSiteMetadata from "@lekoarts/gatsby-theme-minimal-blog/src/hooks/use-site-metadata"
+import { jsx, Styled } from "theme-ui"
 
 const Footer = () => {
     const { author } = useSiteMetadata()
@@ -32,19 +32,30 @@ const Footer = () => {
                 </Styled.a>
             </div>
             <div>
-                💻 with 💗 and{" "}
+                <span role="img" aria-label="computer emoji">
+                    💻
+                </span>{" "}
+                with{" "}
+                <span role="img" aria-label="heart emoji">
+                    💗
+                </span>{" "}
+                and{" "}
                 <Styled.a
                     aria-label="Theme Repository"
                     href="https://github.com/LekoArts/gatsby-starter-minimal-blog"
                 >
-                    🎨
+                    <span role="img" aria-label="paint emoji">
+                        🎨
+                    </span>
                 </Styled.a>{" "}
                 on{" "}
                 <Styled.a
                     aria-label="Github Repository"
                     href="https://github.com/krubenok/nerd-ramblings"
                 >
-                    🐙
+                    <span role="img" aria-label="octopus emoji">
+                        🐙
+                    </span>
                 </Styled.a>
             </div>
         </footer>

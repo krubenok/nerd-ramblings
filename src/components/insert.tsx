@@ -1,5 +1,5 @@
-import React from "react"
 import styled from "@emotion/styled"
+import React from "react"
 
 type InsertProps = {
     children: React.ReactNode
@@ -12,5 +12,6 @@ const InsertContainer = styled.div`
 `
 
 export default function Insert(props: InsertProps) {
-    return <InsertContainer>{props.children}</InsertContainer>
+    const { id } = props
+    return <InsertContainer>{id.children}</InsertContainer>
 }

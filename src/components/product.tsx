@@ -1,7 +1,7 @@
-import React from "react"
 import styled from "@emotion/styled"
+import React from "react"
 
-type InsertProps = {
+type ProductProps = {
     imagePath: string
     alt: string
     mainTitle: string
@@ -44,14 +44,15 @@ const ProductCaption = styled.div`
     }
 `
 
-export default function Product(props) {
+export default function Product(props: ProductProps) {
+    const { id } = props
     return (
         <ProductContainer>
-            <ProductImage src={props.imagePath} alt={props.mainTitle} />
+            <ProductImage src={id.imagePath} alt={id.mainTitle} />
             <ProductCaption>
-                <h2>{props.mainTitle}</h2>
-                <h4>{props.subTitle}</h4>
-                <div>{props.children}</div>
+                <h2>{id.mainTitle}</h2>
+                <h4>{id.subTitle}</h4>
+                <div>{id.children}</div>
             </ProductCaption>
         </ProductContainer>
     )

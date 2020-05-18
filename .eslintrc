@@ -22,6 +22,10 @@
         "simple-import-sort/sort": "error",
 
         // Using a type system makes it safe enough to spread props
-        "react/jsx-props-no-spreading": "off"
+        "react/jsx-props-no-spreading": "off",
+
+        // Disable PascalCase and SCREAMING_SNAKE rule for JSX components
+        "react/jsx-pascal-case": 0,
+        "@typescript-eslint/explicit-function-return-type": 0
     }
 }

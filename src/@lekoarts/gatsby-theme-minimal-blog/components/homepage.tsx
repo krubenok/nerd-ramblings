@@ -1,16 +1,15 @@
 /** @jsx jsx */
-import { jsx } from "theme-ui"
-import { Link } from "gatsby"
 import Layout from "@lekoarts/gatsby-theme-minimal-blog/src/components/layout"
-// @ts-ignore
-import Hero from "@lekoarts/gatsby-theme-minimal-blog/src/texts/hero"
-// @ts-ignore
-import Bottom from "@lekoarts/gatsby-theme-minimal-blog/src/texts/bottom"
-import Title from "@lekoarts/gatsby-theme-minimal-blog/src/components/title"
-import Listing from "./listing"
 import List from "@lekoarts/gatsby-theme-minimal-blog/src/components/list"
+import Title from "@lekoarts/gatsby-theme-minimal-blog/src/components/title"
 import useMinimalBlogConfig from "@lekoarts/gatsby-theme-minimal-blog/src/hooks/use-minimal-blog-config"
+import Bottom from "@lekoarts/gatsby-theme-minimal-blog/src/texts/bottom"
+import Hero from "@lekoarts/gatsby-theme-minimal-blog/src/texts/hero"
 import replaceSlashes from "@lekoarts/gatsby-theme-minimal-blog/src/utils/replaceSlashes"
+import { Link } from "gatsby"
+import { jsx } from "theme-ui"
+
+import Listing from "./listing"
 
 type PostsProps = {
     posts: {

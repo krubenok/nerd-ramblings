@@ -1,19 +1,19 @@
 /** @jsx jsx */
-import { jsx, useColorMode, Styled } from "theme-ui"
-import { Link } from "gatsby"
-import { Flex } from "@theme-ui/components"
-import useSiteMetadata from "@lekoarts/gatsby-theme-minimal-blog/src/hooks/use-site-metadata"
-import useMinimalBlogConfig from "@lekoarts/gatsby-theme-minimal-blog/src/hooks/use-minimal-blog-config"
 import ColorModeToggle from "@lekoarts/gatsby-theme-minimal-blog/src/components/colormode-toggle"
 import Navigation from "@lekoarts/gatsby-theme-minimal-blog/src/components/navigation"
+import useMinimalBlogConfig from "@lekoarts/gatsby-theme-minimal-blog/src/hooks/use-minimal-blog-config"
+import useSiteMetadata from "@lekoarts/gatsby-theme-minimal-blog/src/hooks/use-site-metadata"
 import replaceSlashes from "@lekoarts/gatsby-theme-minimal-blog/src/utils/replaceSlashes"
+import { Flex } from "@theme-ui/components"
+import { Link } from "gatsby"
+import { jsx, Styled, useColorMode } from "theme-ui"
 
 const Header = () => {
     const { siteTitle } = useSiteMetadata()
     const { navigation: nav, externalLinks, basePath } = useMinimalBlogConfig()
     const [colorMode, setColorMode] = useColorMode()
     const isDark = colorMode === `dark`
-    const toggleColorMode = (e: any) => {
+    const toggleColorMode = (e: unknown) => {
         e.preventDefault()
         setColorMode(isDark ? `light` : `dark`)
     }
