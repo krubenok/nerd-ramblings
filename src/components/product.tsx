@@ -3,7 +3,6 @@ import React from "react"
 
 type ProductProps = {
     imagePath: string
-    alt: string
     mainTitle: string
     subTitle: string
     children: React.ReactNode
@@ -45,14 +44,15 @@ const ProductCaption = styled.div`
 `
 
 export default function Product(props: ProductProps) {
-    const { id } = props
+    const { imagePath, mainTitle, subTitle, children } = props
+
     return (
         <ProductContainer>
-            <ProductImage src={id.imagePath} alt={id.mainTitle} />
+            <ProductImage src={imagePath} alt={mainTitle} />
             <ProductCaption>
-                <h2>{id.mainTitle}</h2>
-                <h4>{id.subTitle}</h4>
-                <div>{id.children}</div>
+                <h2>{mainTitle}</h2>
+                <h4>{subTitle}</h4>
+                <div>{children}</div>
             </ProductCaption>
         </ProductContainer>
     )

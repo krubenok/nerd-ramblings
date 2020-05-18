@@ -12,6 +12,6 @@ const InsertContainer = styled.div`
 `
 
 export default function Insert(props: InsertProps) {
-    const { id } = props
-    return <InsertContainer>{id.children}</InsertContainer>
+    const { children } = props
+    return <InsertContainer>{children}</InsertContainer>
 }
