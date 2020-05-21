@@ -1,0 +1,54 @@
+---
+title: An Intercom I Never Need to Answer
+date: "2020-05-21T20:00:00.000Z"
+excerpt: "Like many others, my old apartment building in Montreal had a phone based intercom system to buzz guests into the building. The intercom could be given entries with the names, unit numbers and a local phone number for each resident. This seems like a pretty sound system on the surface, but living in a student-dense area a few problems arose. "
+tags:
+    - Code
+---
+
+Like many others, my old apartment building in Montreal had a phone based intercom system to buzz guests into the building. The intercom could be given entries with the names, unit numbers and a local phone number for each resident. This seems like a pretty sound system on the surface, but living in a student-dense area a few problems arose.
+
+The first was that security was constantly very lax. Half the time the door wouldn't lock itself, other times people would prop the door open for their friends to get in but most frequently, people would just tailgate the next resident to arrive. I'm not too bothered by this since I had an automatically locking August Smart Lock on my apartments door so I decided to optimize my solution to convininence. Since I didn't need to carry a key to open my August lock, I decided it would be nice to also not need a key for my building's front door. After seeing a few other Twilio hacks at varios hackathons the lightbulb went off and a very simple solution became clear: I could change the phone number on the intercom to be a Twilio number and run a simple serverless function to receive the call and immediately dial 9.
+
+The code really coundn't get much simpler:
+
+```javascript
+const qs = require("querystring")
+const VoiceResponse = require("twilio").twiml.VoiceResponse
+const webhook = require("discord-webhook-node")
+const hook = new webhook.Webhook(process.env.DISCORD_WEBHOOK)
+
+module.exports = function (context, req) {
+    context.log("JavaScript HTTP trigger function processed a request.")
+    const twiml = new VoiceResponse()
+    const dial = twiml.dial()
+    twiml.say("Hello")
+    twiml.play({
+        digits: "w999",
+    })
+    context.res = {
+        status: 200,
+        body: twiml.toString(),
+        headers: { "Content-Type": "application/xml" },
+        isRaw: true,
+    }
+
+    console.log("I'm here!")
+    ;(async () => {
+        try {
+            await hook.send("Ding Dong! Someone's at the door!")
+            console.log("Successfully sent webhook!")
+        } catch (e) {
+            console.log(e.message)
+        }
+    })()
+
+    context.done()
+}
+```
+
+For hosting, I decided to experiement with Azure Functions, purely since the workflow of developing and deploying Azure Functions in VS Code is so slick. Using [the extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) all of the DevOps is taken care of with a few button presses. Can't be any easier.
+
+After I got it working I addded an extra feature to send me an alert via a Discord webhook when the door was opened so that I could keep track of unexpected buzzing. The most frquent cause of them was of course package deliveries. Once it was done, all I had to do was point Twilio to the Azure Functions end point and I had an intercom that would auotmatically open once my name was dialed. It's not the most secure thing but it sure was convininent for me.
+
+You can check out the full [project repo on Github](https://github.com/krubenok/Twiltercom).
