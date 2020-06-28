@@ -57,12 +57,6 @@ module.exports = {
                 ],
             },
         },
-        {
-            resolve: `gatsby-plugin-google-analytics`,
-            options: {
-                trackingId: `UA-69494366-1`,
-            },
-        },
         `@pauliescanlon/gatsby-mdx-embed`,
         `gatsby-plugin-sitemap`,
         {
