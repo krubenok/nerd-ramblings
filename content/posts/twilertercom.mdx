@@ -4,7 +4,7 @@ date: "2020-05-21T20:00:00.000Z"
 slug: twiltercom
 excerpt: "Like many others, my old apartment building in Montreal had a phone based intercom system to buzz guests into the building. The intercom could be given entries with the names, unit numbers and a local phone number for each resident. This seems like a pretty sound system on the surface, but living in a student-dense area a few problems arose. "
 tags:
-    - Code
+  - Code
 ---
 
 Like many others, my old apartment building in Montreal had a phone based intercom system to buzz guests into the building. The intercom could be given entries with the names, unit numbers and a local phone number for each resident. This seems like a pretty sound system on the surface, but living in a student-dense area a few problems arose.
@@ -20,31 +20,31 @@ const webhook = require("discord-webhook-node")
 const hook = new webhook.Webhook(process.env.DISCORD_WEBHOOK)
 
 module.exports = function (context, req) {
-    context.log("JavaScript HTTP trigger function processed a request.")
-    const twiml = new VoiceResponse()
-    const dial = twiml.dial()
-    twiml.say("Hello")
-    twiml.play({
-        digits: "w999",
-    })
-    context.res = {
-        status: 200,
-        body: twiml.toString(),
-        headers: { "Content-Type": "application/xml" },
-        isRaw: true,
+  context.log("JavaScript HTTP trigger function processed a request.")
+  const twiml = new VoiceResponse()
+  const dial = twiml.dial()
+  twiml.say("Hello")
+  twiml.play({
+    digits: "w999",
+  })
+  context.res = {
+    status: 200,
+    body: twiml.toString(),
+    headers: { "Content-Type": "application/xml" },
+    isRaw: true,
+  }
+
+  console.log("I'm here!")
+  ;(async () => {
+    try {
+      await hook.send("Ding Dong! Someone's at the door!")
+      console.log("Successfully sent webhook!")
+    } catch (e) {
+      console.log(e.message)
     }
+  })()
 
-    console.log("I'm here!")
-    ;(async () => {
-        try {
-            await hook.send("Ding Dong! Someone's at the door!")
-            console.log("Successfully sent webhook!")
-        } catch (e) {
-            console.log(e.message)
-        }
-    })()
-
-    context.done()
+  context.done()
 }
 ```
 

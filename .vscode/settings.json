@@ -1,9 +1,9 @@
 {
-    "workbench.tree.indent": 16,
-    "cSpell.enableFiletypes": ["markdown"],
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": true,
-    "editor.codeActionsOnSave": {
-        "source.fixAll.eslint": true
-    }
+  "workbench.tree.indent": 16,
+  "cSpell.enableFiletypes": ["markdown"],
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  }
 }
