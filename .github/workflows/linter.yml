@@ -49,5 +49,5 @@ jobs:
         env:
           VALIDATE_ALL_CODEBASE: true
           DEFAULT_BRANCH: master
-          JAVASCRIPT_ES_CONFIG_FILE: .eslintrc
-          TYPESCRIPT_ES_CONFIG_FILE: .eslintrc
+          JAVASCRIPT_ES_CONFIG_FILE: /github/workspace/.eslintrc
+          TYPESCRIPT_ES_CONFIG_FILE: /github/workspace/.eslintrc
