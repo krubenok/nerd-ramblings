@@ -12,40 +12,40 @@ import { jsx } from "theme-ui"
 import Listing from "./listing"
 
 type PostsProps = {
-    posts: {
-        slug: string
-        title: string
-        date: string
-        excerpt: string
-        description: string
-        timeToRead: number
-        tags?: {
-            name: string
-            slug: string
-        }[]
+  posts: {
+    slug: string
+    title: string
+    date: string
+    excerpt: string
+    description: string
+    timeToRead: number
+    tags?: {
+      name: string
+      slug: string
     }[]
+  }[]
 }
 
 const Homepage = ({ posts }: PostsProps) => {
-    const { basePath, blogPath } = useMinimalBlogConfig()
+  const { basePath, blogPath } = useMinimalBlogConfig()
 
-    return (
-        <Layout>
-            <section sx={{ mb: [0, 3, 5], p: { fontSize: [1, 2, 2], mt: 1 } }}>
-                <Hero />
-            </section>
-            <Title text="Latest Posts">
-                <Link to={replaceSlashes(`/${basePath}/${blogPath}`)}>
-                    Read all posts
-                </Link>
-            </Title>
-            <Listing posts={posts} />
-            {/* <Listing posts={posts} showTags={true} /> */}
-            <List>
-                <Bottom />
-            </List>
-        </Layout>
-    )
+  return (
+    <Layout>
+      <section sx={{ mb: [0, 3, 5], p: { fontSize: [1, 2, 2], mt: 1 } }}>
+        <Hero />
+      </section>
+      <Title text="Latest Posts">
+        <Link to={replaceSlashes(`/${basePath}/${blogPath}`)}>
+          Read all posts
+        </Link>
+      </Title>
+      <Listing posts={posts} />
+      {/* <Listing posts={posts} showTags={true} /> */}
+      <List>
+        <Bottom />
+      </List>
+    </Layout>
+  )
 }
 
 export default Homepage

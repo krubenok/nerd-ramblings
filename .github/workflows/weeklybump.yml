@@ -1,15 +1,15 @@
 name: Pull Request on Branch Push
 on:
-    schedule:
-        - cron: "* 6 * * SUN"
+  schedule:
+    - cron: "* 6 * * SUN"
 jobs:
-    auto-pull-request:
-        name: PullRequestAction
-        runs-on: ubuntu-latest
-        steps:
-            - name: pull-request-action
-              uses: vsoch/pull-request-action@1.0.5
-              env:
-                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-                  PULL_REQUEST_BRANCH: "master"
-                  PULL_REQUEST_FROM_BRANCH: "develop"
+  auto-pull-request:
+    name: PullRequestAction
+    runs-on: ubuntu-latest
+    steps:
+      - name: pull-request-action
+        uses: vsoch/pull-request-action@1.0.5
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PULL_REQUEST_BRANCH: "master"
+          PULL_REQUEST_FROM_BRANCH: "develop"
