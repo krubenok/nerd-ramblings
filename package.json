@@ -33,7 +33,7 @@
         "gatsby-plugin-netlify-cms": "^4.3.7",
         "gatsby-plugin-offline": "^3.2.13",
         "gatsby-plugin-sharp": "^2.6.14",
-        "gatsby-plugin-sitemap": "^2.4.7",
+        "gatsby-plugin-sitemap": "^2.4.11",
         "gatsby-remark-images": "^3.3.17",
         "gatsby-theme-mdx-deck": "^4.1.0",
         "gatsby-transformer-remark": "^2.8.23",
