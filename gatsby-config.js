@@ -69,7 +69,7 @@ module.exports = {
           'Written by Kyle Rubenok a Computer Science student studying at McGill University. Previously President at McGill CSUS, Co-Director at HackMcGill and Founding Partner at Penguinleaf. Incoming PM at Microsoft.',
         start_url: '/',
         background_color: '#fafafa',
-        theme_color: '##a625a4',
+        theme_color: '#a625a4',
         display: 'standalone',
         icons: [
           {
