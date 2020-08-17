@@ -20,7 +20,7 @@
     "dependencies": {
         "@emotion/styled": "^10.0.27",
         "@lekoarts/gatsby-theme-minimal-blog": "^2.4.0",
-        "@pauliescanlon/gatsby-mdx-embed": "^0.0.23",
+        "@pauliescanlon/gatsby-mdx-embed": "^0.0.27",
         "@theme-ui/components": "^0.3.1",
         "@theme-ui/presets": "^0.3.0",
         "emotion": "^10.0.27",
