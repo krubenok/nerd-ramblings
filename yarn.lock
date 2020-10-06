@@ -1536,13 +1536,13 @@
     "@babel/runtime" "^7.7.2"
     regenerator-runtime "^0.13.3"
 
-"@lekoarts/gatsby-theme-minimal-blog-core@^2.4.3":
-  version "2.4.3"
-  resolved "https://registry.yarnpkg.com/@lekoarts/gatsby-theme-minimal-blog-core/-/gatsby-theme-minimal-blog-core-2.4.3.tgz#c20c373537b5daebcb2be8a85a324c6dc9849f4d"
-  integrity sha512-0cImhJPAh3P4q2XP+YvKt0ttRALZ4/86miczJplv8hzoHxCf6oqjXOp61PgZ+UAvZZswhvMAJHExbaRnxmeCeg==
+"@lekoarts/gatsby-theme-minimal-blog-core@^2.5.0":
+  version "2.5.0"
+  resolved "https://registry.yarnpkg.com/@lekoarts/gatsby-theme-minimal-blog-core/-/gatsby-theme-minimal-blog-core-2.5.0.tgz#0f212e823d477332e3b0b2b7c9490e4e60fdd3c9"
+  integrity sha512-9N3ybU1At3Ret14SiYEnzwpgbUip4ISFH3AVW4UPe/tduCBsfIYCEYnS6R+5KwOmRJlGHLIOEDoZjU/ZI/Q79w==
   dependencies:
-    "@mdx-js/mdx" "^1.6.17"
-    "@mdx-js/react" "^1.6.17"
+    "@mdx-js/mdx" "^1.6.18"
+    "@mdx-js/react" "^1.6.18"
     gatsby-plugin-mdx "^1.2.40"
     gatsby-plugin-sharp "^2.6.36"
     gatsby-plugin-typescript "^2.4.20"
@@ -1551,12 +1551,12 @@
     gatsby-transformer-sharp "^2.5.15"
     lodash.kebabcase "^4.1.1"
 
-"@lekoarts/gatsby-theme-minimal-blog@^2.5.3":
-  version "2.5.3"
-  resolved "https://registry.yarnpkg.com/@lekoarts/gatsby-theme-minimal-blog/-/gatsby-theme-minimal-blog-2.5.3.tgz#cec3f0630825c7be1a9b660c55481d727c07de74"
-  integrity sha512-lF8qkcbFN4LfKLTokvO5jytxIbL9kJWTfNx6NyJkGtfID+xQwceDBy2fMjSOmeTl+HreAm7G7mwkRvuxroL7fw==
+"@lekoarts/gatsby-theme-minimal-blog@^2.6.1":
+  version "2.6.1"
+  resolved "https://registry.yarnpkg.com/@lekoarts/gatsby-theme-minimal-blog/-/gatsby-theme-minimal-blog-2.6.1.tgz#f90fd74daac9d70fe967cd975102e9ec23b2ee92"
+  integrity sha512-u0+4pnRGF0nu/wlT5cMmUzd2RZViLWuEnBs9VPOtzdo1WBlJPyGIJZh0x9sayZqEQ/LFfOayF/38mB8sZHHz/g==
   dependencies:
-    "@lekoarts/gatsby-theme-minimal-blog-core" "^2.4.3"
+    "@lekoarts/gatsby-theme-minimal-blog-core" "^2.5.0"
     "@loadable/component" "^5.13.2"
     "@theme-ui/color" "^0.3.1"
     "@theme-ui/components" "^0.3.1"
@@ -1616,7 +1616,7 @@
     "@mdx-js/react" "1.6.18"
     loader-utils "2.0.0"
 
-"@mdx-js/mdx@1.6.18", "@mdx-js/mdx@^1.0.21", "@mdx-js/mdx@^1.5.3", "@mdx-js/mdx@^1.6.17":
+"@mdx-js/mdx@1.6.18", "@mdx-js/mdx@^1.0.21", "@mdx-js/mdx@^1.5.3", "@mdx-js/mdx@^1.6.18":
   version "1.6.18"
   resolved "https://registry.yarnpkg.com/@mdx-js/mdx/-/mdx-1.6.18.tgz#c73345ef75be0ec303c5d87f3b95cbe55c192742"
   integrity sha512-RXtdFBP3cnf/RILx/ipp5TsSY1k75bYYmjorv7jTaPcHPQwhQdI6K4TrVUed/GL4f8zX5TN2QwO5g+3E/8RsXA==
@@ -1668,7 +1668,7 @@
     unist-builder "2.0.3"
     unist-util-visit "2.0.3"
 
-"@mdx-js/react@1.6.18", "@mdx-js/react@^1.0.0", "@mdx-js/react@^1.0.21", "@mdx-js/react@^1.5.2", "@mdx-js/react@^1.6.17":
+"@mdx-js/react@1.6.18", "@mdx-js/react@^1.0.0", "@mdx-js/react@^1.0.21", "@mdx-js/react@^1.5.2", "@mdx-js/react@^1.6.18":
   version "1.6.18"
   resolved "https://registry.yarnpkg.com/@mdx-js/react/-/react-1.6.18.tgz#f83cbb2355de9cf36a213140ce21647da1e34fa7"
   integrity sha512-aFHsZVu7r9WamlP+WO/lyvHHZAubkQjkcRYlvS7fQElypfJvjKdHevjC3xiqlsQpasx/4KqRMoEIb++wNtd+6w==
