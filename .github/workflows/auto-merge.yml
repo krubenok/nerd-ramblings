@@ -11,4 +11,4 @@ jobs:
       - uses: krubenok/gh-action-auto-merge-dependency-updates@master
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
-          allowed-actors: dependabot[bot]
+          allowed-actors: dependabot[bot], krubenok, dependabot-preview[bot] 
