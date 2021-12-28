@@ -1,3 +1,7 @@
+require(`dotenv`).config();
+
+const shouldAnalyseBundle = process.env.ANALYSE_BUNDLE;
+
 module.exports = {
   siteMetadata: {
     siteTitle: "Nerd Ramblings",
@@ -11,17 +15,6 @@ module.exports = {
     author: "Kyle Rubenok",
   },
   plugins: [
-    {
-      resolve: "gatsby-theme-mdx-deck",
-      options: {
-        // enable or disable gatsby-plugin-mdx
-        mdx: false,
-        // source directory
-        contentPath: "content/decks",
-        // base path for routes generate by this theme
-        basePath: "/decks",
-      },
-    },
     {
       resolve: "@lekoarts/gatsby-theme-minimal-blog",
       options: {
@@ -58,10 +51,28 @@ module.exports = {
         ],
       },
     },
-    "@pauliescanlon/gatsby-mdx-embed",
-    "gatsby-plugin-sitemap",
     {
-      resolve: "gatsby-plugin-manifest",
+      resolve: `gatsby-omni-font-loader`,
+      options: {
+        enableListener: true,
+        preconnect: [`https://fonts.gstatic.com`],
+        interval: 300,
+        timeout: 30000,
+        // If you plan on changing the font you'll also need to adjust the Theme UI config to edit the CSS
+        // See: https://github.com/LekoArts/gatsby-themes/tree/main/examples/minimal-blog#changing-your-fonts
+        web: [
+          {
+            name: `IBM Plex Sans`,
+            file: `https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap`,
+          },
+        ],
+      },
+    },
+    `gatsby-plugin-sitemap`,
+    `gatsby-plugin-sharp`,
+    `gatsby-plugin-mdx-embed`,
+    {
+      resolve: `gatsby-plugin-manifest`,
       options: {
         name: "Nerd Ramblings by Kyle Rubenok",
         short_name: "Nerd Ramblings",
@@ -85,35 +96,53 @@ module.exports = {
         ],
       },
     },
-    "gatsby-plugin-offline",
-    "gatsby-plugin-netlify",
-    "gatsby-plugin-sharp",
-    "gatsby-remark-images",
-    "gatsby-plugin-netlify-cms",
     {
-      resolve: "gatsby-source-filesystem",
+      resolve: `gatsby-plugin-feed`,
       options: {
-        name: "markdown-pages",
-        path: `${__dirname}/content/posts`,
-      },
-    },
-    {
-      resolve: "gatsby-transformer-remark",
-      options: {
-        plugins: [
+        query: `
           {
-            resolve: "gatsby-remark-images",
-            options: {
-              maxWidth: 1200,
-            },
+            site {
+              siteMetadata {
+                title: siteTitle
+                description: siteDescription
+                siteUrl
+                site_url: siteUrl
+              }
+            }
+          }
+        `,
+        feeds: [
+          {
+            serialize: ({ query: { site, allPost } }) =>
+              allPost.nodes.map((post) => {
+                const url = site.siteMetadata.siteUrl + post.slug;
+                const content = `<p>${post.excerpt}</p><div style="margin-top: 50px; font-style: italic;"><strong><a href="${url}">Keep reading</a>.</strong></div><br /> <br />`;
+
+                return {
+                  title: post.title,
+                  date: post.date,
+                  excerpt: post.excerpt,
+                  url,
+                  guid: url,
+                  custom_elements: [{ "content:encoded": content }],
+                };
+              }),
+            query: `
+              {
+                allPost(sort: { fields: date, order: DESC }) {
+                  nodes {
+                    title
+                    date(formatString: "MMMM D, YYYY")
+                    excerpt
+                    slug
+                  }
+                }
+              }
+            `,
+            output: `rss.xml`,
+            title: `Nerd Ramblings - Kyle Rubenok`,
           },
         ],
-      },
-    },
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        path: `${__dirname}/content/pages`,
       },
     },
     {
@@ -122,11 +151,13 @@ module.exports = {
         path: `${__dirname}/content/assets`,
       },
     },
-    {
-      resolve: "gatsby-source-filesystem",
+    shouldAnalyseBundle && {
+      resolve: `gatsby-plugin-webpack-bundle-analyser-v2`,
       options: {
-        path: `${__dirname}/content/posts`,
+        analyzerMode: `static`,
+        reportFilename: `_bundle.html`,
+        openAnalyzer: false,
       },
     },
-  ],
-}
+  ].filter(Boolean),
+};

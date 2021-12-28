@@ -1,12 +1,12 @@
-import styled from "@emotion/styled"
-import React from "react"
+import styled from "@emotion/styled";
+import React from "react";
 
 type ProductProps = {
-  imagePath: string
-  mainTitle: string
-  subTitle: string
-  children: React.ReactNode
-}
+  imagePath: string;
+  mainTitle: string;
+  subTitle: string;
+  children: React.ReactNode;
+};
 
 const ProductContainer = styled.div`
   padding: 0px 15px 0px 15px;
@@ -16,7 +16,7 @@ const ProductContainer = styled.div`
   @media only screen and (max-width: 450px) {
     justify-content: center;
   }
-`
+`;
 
 const ProductImage = styled.img`
   flex-basis: 18%;
@@ -26,7 +26,7 @@ const ProductImage = styled.img`
   @media only screen and (max-width: 450px) {
     max-width: 80%;
   }
-`
+`;
 
 const ProductCaption = styled.div`
   flex-basis: 70%;
@@ -41,10 +41,10 @@ const ProductCaption = styled.div`
     word-break: break-word;
     font-weight: 400;
   }
-`
+`;
 
 export default function Product(props: ProductProps) {
-  const { imagePath, mainTitle, subTitle, children } = props
+  const { imagePath, mainTitle, subTitle, children } = props;
 
   return (
     <ProductContainer>
@@ -55,5 +55,5 @@ export default function Product(props: ProductProps) {
         <div>{children}</div>
       </ProductCaption>
     </ProductContainer>
-  )
+  );
 }
