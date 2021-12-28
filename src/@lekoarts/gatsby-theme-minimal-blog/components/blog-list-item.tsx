@@ -18,7 +18,7 @@ type BlogListItemProps = {
       slug: string
     }[]
   }
-  showTags?: boolean
+  showTags: boolean
 }
 
 const BlogListItem = ({ post, showTags = true }: BlogListItemProps) => (

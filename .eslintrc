@@ -17,9 +17,9 @@
 
   "rules": {
     // Auto-sort imports
-    "sort-imports": "off",
+    "sort-imports": 0,
     "import/order": "off",
-    "simple-import-sort/sort": "error",
+    "simple-import-sort/imports": "error",
 
     // Using a type system makes it safe enough to spread props
     "react/jsx-props-no-spreading": "off",

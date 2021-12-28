@@ -16,8 +16,8 @@ type ListingProps = {
       slug: string
     }[]
   }[]
-  className?: string
-  showTags?: boolean
+  className: string
+  showTags: boolean
 }
 
 const Listing = ({ posts, className, showTags = true }: ListingProps) => (

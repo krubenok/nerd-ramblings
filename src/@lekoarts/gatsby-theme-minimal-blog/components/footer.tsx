@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import useSiteMetadata from "@lekoarts/gatsby-theme-minimal-blog/src/hooks/use-site-metadata"
-import { jsx, Styled } from "theme-ui"
+import { jsx,Styled } from "theme-ui"
 
 const Footer = () => {
   const { author } = useSiteMetadata()
