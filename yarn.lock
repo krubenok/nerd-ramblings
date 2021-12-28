@@ -17932,10 +17932,10 @@ typeface-ibm-plex-sans@^1.1.13:
   resolved "https://registry.yarnpkg.com/typeface-ibm-plex-sans/-/typeface-ibm-plex-sans-1.1.13.tgz#3141045440b445dc323bf3f87b6bcc57c0091ef2"
   integrity sha512-WLe7IEjz4m3lDU5xXHMpOyVxnhGmCnuee5A9GJExHpYJcto+JzFg6uRNBSlsW6KDmb8mh8WJSGLSJJgjzj6iMg==
 
-typescript@^4.0.5:
-  version "4.0.5"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.0.5.tgz#ae9dddfd1069f1cb5beb3ef3b2170dd7c1332389"
-  integrity sha512-ywmr/VrTVCmNTJ6iV2LwIrfG1P+lv6luD8sUJs+2eI9NLGigaN+nUQc13iHqisq7bra9lnmUSYqbJvegraBOPQ==
+typescript@^4.5.4:
+  version "4.5.4"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.5.4.tgz#a17d3a0263bf5c8723b9c52f43c5084edf13c2e8"
+  integrity sha512-VgYs2A2QIRuGphtzFV7aQJduJ2gyfTljngLzjpfW9FoYZF6xuw1W0vW9ghCKLfcWrCFxK81CSGRAvS1pn4fIUg==
 
 ua-parser-js@^0.7.18:
   version "0.7.22"
