@@ -151,6 +151,17 @@ module.exports = {
         path: `${__dirname}/content/assets`,
       },
     },
+    {
+      resolve: `gatsby-source-git`,
+      options: {
+        name: `resume`,
+        remote: `https://github.com/krubenok/resume.git`,
+        branch: `main`,
+        local: "./public/resume",
+        // Only import the compiled PDF.
+        patterns: `**.pdf`,
+      },
+    },
     shouldAnalyseBundle && {
       resolve: `gatsby-plugin-webpack-bundle-analyser-v2`,
       options: {
