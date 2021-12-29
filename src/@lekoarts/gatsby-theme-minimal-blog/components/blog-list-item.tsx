@@ -1,29 +1,29 @@
 /** @jsx jsx */
-import ItemTags from "@lekoarts/gatsby-theme-minimal-blog/src/components/item-tags"
-import { Box } from "@theme-ui/components"
-import { Link } from "gatsby"
-import React from "react"
-import { jsx, Styled } from "theme-ui"
+import ItemTags from "@lekoarts/gatsby-theme-minimal-blog/src/components/item-tags";
+import { Box } from "@theme-ui/components";
+import { Link } from "gatsby";
+import React from "react";
+import { jsx, Themed } from "theme-ui";
 
 type BlogListItemProps = {
   post: {
-    slug: string
-    title: string
-    date: string
-    excerpt: string
-    description: string
-    timeToRead: number
+    slug: string;
+    title: string;
+    date: string;
+    excerpt: string;
+    description: string;
+    timeToRead: number;
     tags?: {
-      name: string
-      slug: string
-    }[]
-  }
-  showTags: boolean
-}
+      name: string;
+      slug: string;
+    }[];
+  };
+  showTags: boolean;
+};
 
 const BlogListItem = ({ post, showTags = true }: BlogListItemProps) => (
   <Box mb={4}>
-    <Styled.a
+    <Themed.a
       as={Link}
       to={post.slug}
       sx={{
@@ -33,7 +33,7 @@ const BlogListItem = ({ post, showTags = true }: BlogListItemProps) => (
       }}
     >
       {post.title}
-    </Styled.a>
+    </Themed.a>
     <p
       sx={{
         color: `secondary`,
@@ -55,11 +55,11 @@ const BlogListItem = ({ post, showTags = true }: BlogListItemProps) => (
     <p>
       <span>{post.excerpt}</span>
       {"  "}
-      <Styled.a as={Link} to={post.slug} sx={{ textDecoration: `underline` }}>
+      <Themed.a as={Link} to={post.slug} sx={{ textDecoration: `underline` }}>
         Read more...
-      </Styled.a>
+      </Themed.a>
     </p>
   </Box>
-)
+);
 
-export default BlogListItem
+export default BlogListItem;

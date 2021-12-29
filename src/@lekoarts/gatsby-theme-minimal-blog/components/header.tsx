@@ -1,35 +1,24 @@
 /** @jsx jsx */
-import ColorModeToggle from "@lekoarts/gatsby-theme-minimal-blog/src/components/colormode-toggle"
-import Navigation from "@lekoarts/gatsby-theme-minimal-blog/src/components/navigation"
-import useMinimalBlogConfig from "@lekoarts/gatsby-theme-minimal-blog/src/hooks/use-minimal-blog-config"
-import useSiteMetadata from "@lekoarts/gatsby-theme-minimal-blog/src/hooks/use-site-metadata"
-import replaceSlashes from "@lekoarts/gatsby-theme-minimal-blog/src/utils/replaceSlashes"
-import { Flex } from "@theme-ui/components"
-import { Link } from "gatsby"
-import { jsx, Styled, useColorMode } from "theme-ui"
+import { jsx, useColorMode, Flex } from "theme-ui";
+import useMinimalBlogConfig from "@lekoarts/gatsby-theme-minimal-blog/src/hooks/use-minimal-blog-config";
+import ColorModeToggle from "@lekoarts/gatsby-theme-minimal-blog/src/components/colormode-toggle";
+import Navigation from "@lekoarts/gatsby-theme-minimal-blog/src/components/navigation";
+import HeaderTitle from "@lekoarts/gatsby-theme-minimal-blog/src/components/header-title";
+import HeaderExternalLinks from "@lekoarts/gatsby-theme-minimal-blog/src/components/header-external-links";
 
 const Header = () => {
-  const { siteTitle } = useSiteMetadata()
-  const { navigation: nav, externalLinks, basePath } = useMinimalBlogConfig()
-  const [colorMode, setColorMode] = useColorMode()
-  const isDark = colorMode === `dark`
-  const toggleColorMode = (e: unknown) => {
-    e.preventDefault()
-    setColorMode(isDark ? `light` : `dark`)
-  }
+  const { navigation: nav } = useMinimalBlogConfig();
+  const [colorMode, setColorMode] = useColorMode();
+  const isDark = colorMode === `dark`;
+  const toggleColorMode = (e: any) => {
+    e.preventDefault();
+    setColorMode(isDark ? `light` : `dark`);
+  };
 
   return (
     <header sx={{ mb: [5, 5] }}>
       <Flex sx={{ alignItems: `center`, justifyContent: `space-between` }}>
-        <Link
-          to={replaceSlashes(`/${basePath}`)}
-          aria-label={`${siteTitle} - Back to home`}
-          sx={{ color: `heading`, textDecoration: `none` }}
-        >
-          <h1 sx={{ my: 0, fontWeight: `medium`, fontSize: [3, 4] }}>
-            {siteTitle}
-          </h1>
-        </Link>
+        <HeaderTitle />
         <ColorModeToggle isDark={isDark} toggle={toggleColorMode} />
       </Flex>
       <div
@@ -46,23 +35,10 @@ const Header = () => {
         }}
       >
         <Navigation nav={nav} />
-        {externalLinks && externalLinks.length > 0 && (
-          <div
-            sx={{
-              "a:not(:first-of-type)": { ml: 1 },
-              fontSize: [1, `18px`],
-            }}
-          >
-            {externalLinks.map((link) => (
-              <Styled.a key={link.url} href={link.url}>
-                {link.name}
-              </Styled.a>
-            ))}
-          </div>
-        )}
+        <HeaderExternalLinks />
       </div>
     </header>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

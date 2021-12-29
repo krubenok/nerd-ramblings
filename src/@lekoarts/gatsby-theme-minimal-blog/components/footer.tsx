@@ -1,9 +1,9 @@
 /** @jsx jsx */
-import useSiteMetadata from "@lekoarts/gatsby-theme-minimal-blog/src/hooks/use-site-metadata"
-import { jsx,Styled } from "theme-ui"
+import useSiteMetadata from "@lekoarts/gatsby-theme-minimal-blog/src/hooks/use-site-metadata";
+import { jsx, Themed } from "theme-ui";
 
 const Footer = () => {
-  const { author } = useSiteMetadata()
+  const { author } = useSiteMetadata();
 
   return (
     <footer
@@ -22,13 +22,13 @@ const Footer = () => {
     >
       <div>
         &copy; {new Date().getFullYear()} by {author}. All rights reserved.{" "}
-        <Styled.a
+        <Themed.a
           aria-label="RSS"
           href="/rss.xml"
           sx={{ textDecoration: `underline` }}
         >
           RSS
-        </Styled.a>
+        </Themed.a>
       </div>
       <div>
         <span role="img" aria-label="computer emoji">
@@ -39,26 +39,26 @@ const Footer = () => {
           💗
         </span>{" "}
         and{" "}
-        <Styled.a
+        <Themed.a
           aria-label="Theme Repository"
           href="https://github.com/LekoArts/gatsby-starter-minimal-blog"
         >
           <span role="img" aria-label="paint emoji">
             🎨
           </span>
-        </Styled.a>{" "}
+        </Themed.a>{" "}
         on{" "}
-        <Styled.a
+        <Themed.a
           aria-label="Github Repository"
           href="https://github.com/krubenok/nerd-ramblings"
         >
           <span role="img" aria-label="octopus emoji">
             🐙
           </span>
-        </Styled.a>
+        </Themed.a>
       </div>
     </footer>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;
