@@ -10,11 +10,11 @@ tags:
 
 When self hosting services in a homelab, I find one of the most annoying and complicated steps to be the reverse proxy and remote access situation for locally hosted web apps. In various iterations of my homelab setup, I've had a handful of different solutions to this problem. Everything from handwriting proxy configs (that admittedly, I didn't fully understand) to ansible based paybooks that automatically configured everything with a Google based authentication step to protect the pages when accesing the apps remotely.
 
-Cloudflare has introducted a fairly novel solution to this problem by combining their Cloudflare for Access offering protecting SaaS services with their Tunnels (formerly Argo) product to tunnel on-prem services to the Cloudflare Network. Previously, I'd realized how powerful this could be while experimenting with `cloudflared` as an `ngrok and it worked quite well. This is a whole other ballgame of cool though!
+Cloudflare has introducted a fairly novel solution to this problem by combining their Cloudflare for Access offering protecting SaaS services with their Tunnels (formerly Argo) product to tunnel on-prem services to the Cloudflare Network. Previously, I'd realized how powerful this could be while experimenting with `cloudflared` as an `ngrok` replacement and it worked quite well. This is a whole other ballgame of cool though!
 
 ## Setting Up the Tunnels
 
-Despite intending to run the cloudflared in docker container on my server, I found it much easier to get the tunnels up and running on my laptop.
+Despite intending to run the `cloudflared` in docker container on my server, I found it much easier to get the tunnels up and running on my laptop.
 
 First, we'll [install the cloudflared client](https://developers.cloudflare.com/cloudflare-one/connections/connect-apps/install-and-setup/tunnel-guide). On macOS, it's a simple `brew install cloudflare/cloudflare/cloudflared`. Once we've got this setup, we'll authenticate it with `cloudflared tunnel login`. This will prompt you to sign in from your default browser.
 
@@ -36,7 +36,7 @@ ingress:
   - service: http_status:404
 ```
 
-> Note that `config.yml` placed in the `cloudflared` folder is the default, you can name it something else or have several config files by passing the --config flad followed by the file path for the config file. Ex; `cloudflared tunnel --config ./jarvis-tunnel.yaml run`
+> Note that `config.yml` placed in the `cloudflared` folder is the default, you can name it something else or have several config files by passing the --config flag followed by the file path for the config file. Ex; `cloudflared tunnel --config ./jarvis-tunnel.yaml run`
 
 You can add as many services as you'd like here, the final entry is just a catch all that will 404 any requests to the tunnel that don't match an earlier hostname. We'll also want to connect those hostnames to our tunnel, for each of the hostnames, we'll want to run this command: `cloudflared tunnel route dns <UUID or NAME of TUNNEL> <hostname>`. For example, `cloudflared tunnel route dns jarvis-tunnel app1.domain.ca`
 
@@ -46,15 +46,15 @@ At this point, we can run the tunnel from our laptop and it should work. You can
 
 Cloudflare Access will allow us to secure the services we have now exposed to the internet via our tunnel. The free plan available at https://dash.teams.cloudflare.com should be plenty for homelab use with up to 50 users.
 
-Once signed up, you'll want to configure an Application under the Access menu for each host we setup earlier in our config file. The process is pretty straightforward and you'll want to setup an access rule to suit your needs. I'd suggest starting off with an email rule and just listing the allowed emails for each app. You can also connect more auth services, but One-time Pin is enough to get us started.
+Once signed up, you'll want to configure an Application under the Access menu for each host we setup earlier in our config file. The process is pretty straightforward and you'll want to setup an access policy to suit your needs. I'd suggest starting off with an email policy and just listing the allowed emails for each app. You can also connect more auth services, but One-time Pin is enough to get us started.
 
 You'll notice that once these applications are registered, visiting those hostnames will now require Cloudflare authentication, excellent!
 
 ## Moving the Tunnel to Docker
 
-Now that we've got everythign working, we'll move the tunnels over to the docker host so that it can run 24/7.
+Now that we've got everythign working and secure, we'll move the tunnels over to the docker host so that it can run 24/7.
 
-First, we'll need to move the tunnel config file we wrote over to the docker host in an app data folder. I put these at `/home/appdata/cloudflared`. There is a _slight_ adjustment that needs to be made.
+First, we'll need to move the tunnel config file we wrote over to the docker host in an appdata folder. I put this at `/home/appdata/cloudflared`. There is a _slight_ adjustment that needs to be made.
 
 ```yml
 tunnel: dd810fa3-ab49-405c-84ea-7b123c39e
@@ -70,7 +70,7 @@ ingress:
 
 You'll notice that the credentials file path has changed (this is inside the container, not the host's path), on linux, the default cloudflared folder location is `/etc/cloudflared/` (no `.` before the folder like on macOS). We'll also need to copy the `json` file that contains our tunnel's credentials to the docker host's `appdata/cloudflared` folder. We **do not** need to copy the `pem` file as the tunnel has already been created and doesn't require any additonal user authentication.
 
-Here's the docker-compose file I'm using, take note of the version of the cloudflared container (there is no "latest" tag for this container).
+Here's the docker-compose file I'm using, take note of the version of the cloudflared container (there is no "latest" tag for this container so you'll probably want to set it to the most recent release when you deploy this).
 
 ```yml
 version: "3.8"
