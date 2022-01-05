@@ -9,5 +9,4 @@ updates:
     directory: "/"
     # Check the npm registry for updates every day (weekdays)
     schedule:
-      interval: "weekly"
-    target-branch: "main"
+      interval: "daily"
