@@ -22,7 +22,7 @@
     "gatsby": "^4.9.3",
     "gatsby-image": "^3.11.0",
     "gatsby-omni-font-loader": "^2.0.0",
-    "gatsby-plugin-feed": "^4.9.0",
+    "gatsby-plugin-feed": "^4.10.0",
     "gatsby-plugin-manifest": "^4.9.1",
     "gatsby-plugin-mdx": "^3.9.1",
     "gatsby-plugin-mdx-embed": "1.0.0",
