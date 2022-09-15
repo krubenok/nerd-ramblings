@@ -36,7 +36,7 @@
     "gatsby-transformer-sharp": "^4.23.0",
     "mdx-embed": "1.0.0",
     "react": "^18.2.0",
-    "react-dom": "^17.0.2"
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "cross-env": "^7.0.3"
