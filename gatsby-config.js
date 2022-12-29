@@ -83,6 +83,17 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-source-git`,
+      options: {
+        name: `resume`,
+        remote: `https://github.com/krubenok/resume.git`,
+        branch: `main`,
+        local: "./public/resume",
+        // Only import the compiled PDF.
+        patterns: `**.pdf`,
+      },
+    },
+    {
       resolve: `gatsby-plugin-feed`,
       options: {
         query: `
