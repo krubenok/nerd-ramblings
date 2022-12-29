@@ -38,6 +38,10 @@ module.exports = {
             url: `https://twitter.com/krubenok`,
           },
           {
+            name: `Mastodon`,
+            url: `https://hachyderm.io/@krubenok`,
+          },
+          {
             name: "Github",
             url: "https://github.com/krubenok",
           },

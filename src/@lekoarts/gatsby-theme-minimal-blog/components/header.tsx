@@ -8,18 +8,12 @@ import HeaderExternalLinks from "@lekoarts/gatsby-theme-minimal-blog/src/compone
 
 const Header = () => {
   const { navigation: nav } = useMinimalBlogConfig();
-  const [colorMode, setColorMode] = useColorMode();
-  const isDark = colorMode === `dark`;
-  const toggleColorMode = (e: any) => {
-    e.preventDefault();
-    setColorMode(isDark ? `light` : `dark`);
-  };
 
   return (
     <header sx={{ mb: [5, 5] }}>
       <Flex sx={{ alignItems: `center`, justifyContent: `space-between` }}>
         <HeaderTitle />
-        <ColorModeToggle isDark={isDark} toggle={toggleColorMode} />
+        <ColorModeToggle />
       </Flex>
       <div
         sx={{
