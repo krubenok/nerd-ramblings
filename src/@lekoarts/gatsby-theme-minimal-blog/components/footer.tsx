@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import useSiteMetadata from "@lekoarts/gatsby-theme-minimal-blog/src/hooks/use-site-metadata";
-import { jsx, Themed } from "theme-ui";
+import { jsx, Link } from "theme-ui";
 
 const Footer = () => {
   const { author } = useSiteMetadata();
@@ -22,13 +22,13 @@ const Footer = () => {
     >
       <div>
         &copy; {new Date().getFullYear()} by {author}. All rights reserved.{" "}
-        <Themed.a
+        <Link
           aria-label="RSS"
           href="/rss.xml"
           sx={{ textDecoration: `underline` }}
         >
           RSS
-        </Themed.a>
+        </Link>
       </div>
       <div>
         <span role="img" aria-label="computer emoji">
@@ -39,23 +39,23 @@ const Footer = () => {
           💗
         </span>{" "}
         and{" "}
-        <Themed.a
+        <Link
           aria-label="Theme Repository"
           href="https://github.com/LekoArts/gatsby-starter-minimal-blog"
         >
           <span role="img" aria-label="paint emoji">
             🎨
           </span>
-        </Themed.a>{" "}
+        </Link>{" "}
         on{" "}
-        <Themed.a
+        <Link
           aria-label="Github Repository"
           href="https://github.com/krubenok/nerd-ramblings"
         >
           <span role="img" aria-label="octopus emoji">
             🐙
           </span>
-        </Themed.a>
+        </Link>
       </div>
     </footer>
   );

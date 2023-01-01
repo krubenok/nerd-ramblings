@@ -1,0 +1,22 @@
+---
+title: Building This Blog (2021)
+date: "2021-12-28T00:00:00.043Z"
+excerpt: "Well, it's been about two years and I wrote on this even less than I expected I would, but I decided to give it a little tech swap under the covers."
+tags:
+  - Blog
+---
+
+Well, it's been about two years and I wrote on this even less than I expected I would, but I decided to give it a little tech swap under the covers. You can read about the original tech stack for the blog [here](./building-this-blog-2019)
+
+## What went well
+
+- I continue to use Github to host the repository for this blog, and try to put as much as possible into a version controled repository.
+- I have stopped hosting this blog with Netlify. I'll get into why I moved to Vercel below.
+- It's not as simple as I tried to convince myself it was, but I enjoy it 😅.
+- We're still on Gatsby. I still like it, but I'm interested in exploeing other options that could potentially be more resiliant over time than Javascript based projects.
+
+## What I'm changing
+
+- I have updated the site to use Gatsby v4. This was a pretty big pain in the ass and I found it easier to actually start a brand new site with the updated version of the [template](https://github.com/LekoArts/gatsby-starter-minimal-blog), then port all my customizations back over to it.
+- Vercel has a much more generous free tier than Netlify, including a much more resiliant free analytics offering that is relatively privacy respecting. Netlify is still great and does have a few Gatsby-features I miss (such as build caching), but overall Vercel was a better value at the free tier.
+- I added a slick resume importing source for Gatsby that I got from [Johanan Idicula](http://github.com/jidicula). The lastest PDF file from my [Resume Repo](https://github.com/krubenok/resume) is automatically imported into this site on the [About Page](/about).
