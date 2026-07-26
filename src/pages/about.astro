@@ -1,0 +1,25 @@
+---
+import { getCollection, render } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const pages = await getCollection("pages");
+const page = pages.find(({ data }) => data.slug === "/about");
+
+if (!page) {
+  throw new Error("The about page is missing from the pages content collection.");
+}
+
+const { Content } = await render(page);
+---
+
+<BaseLayout title="About" description="About Kyle Rubenok and Nerd Ramblings.">
+  <article class="prose">
+    <header class="page-header">
+      <p class="eyebrow">About the author</p>
+      <h1>{page.data.title}</h1>
+    </header>
+    <div class="article-body">
+      <Content />
+    </div>
+  </article>
+</BaseLayout>

@@ -1,0 +1,25 @@
+---
+import PostCard from "../../components/PostCard.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getPublishedPosts } from "../../lib/posts";
+
+const posts = await getPublishedPosts();
+---
+
+<BaseLayout
+  title="Writing"
+  description="Every Nerd Ramblings post, from homelab experiments to product and productivity notes."
+>
+  <header class="page-header">
+    <p class="eyebrow">The archive</p>
+    <h1>Writing</h1>
+    <p>
+      Experiments, hard-won setup notes, and occasional opinions about technology and the people
+      who have to live with it.
+    </p>
+  </header>
+
+  <div class="post-list">
+    {posts.map((post) => <PostCard post={post} />)}
+  </div>
+</BaseLayout>

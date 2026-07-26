@@ -1,0 +1,44 @@
+---
+import PostCard from "../../components/PostCard.astro";
+import type { Post } from "../../lib/posts";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getPublishedPosts, slugifyTag } from "../../lib/posts";
+
+interface Props {
+  label: string;
+  posts: Post[];
+}
+
+export const getStaticPaths = async () => {
+  const posts = await getPublishedPosts();
+  const tags = new Map<string, { label: string; posts: Post[] }>();
+
+  for (const post of posts) {
+    for (const label of post.data.tags) {
+      const slug = slugifyTag(label);
+      const entry = tags.get(slug) ?? { label, posts: [] };
+      entry.posts.push(post);
+      tags.set(slug, entry);
+    }
+  }
+
+  return [...tags.entries()].map(([tag, props]) => ({
+    params: { tag },
+    props,
+  }));
+};
+
+const { label, posts } = Astro.props;
+---
+
+<BaseLayout title={label} description={`Nerd Ramblings posts about ${label}.`}>
+  <header class="page-header">
+    <p class="eyebrow">Topic</p>
+    <h1>{label}</h1>
+    <p>{posts.length} {posts.length === 1 ? "post" : "posts"} in this thread.</p>
+  </header>
+
+  <div class="post-list">
+    {posts.map((post) => <PostCard post={post} />)}
+  </div>
+</BaseLayout>

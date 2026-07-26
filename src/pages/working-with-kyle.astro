@@ -1,0 +1,28 @@
+---
+import { getCollection, render } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const pages = await getCollection("pages");
+const page = pages.find(({ data }) => data.slug === "/working-with-kyle");
+
+if (!page) {
+  throw new Error("The Working with Kyle page is missing from the pages content collection.");
+}
+
+const { Content } = await render(page);
+---
+
+<BaseLayout
+  title="Working with Kyle"
+  description="Kyle Rubenok's working style, communication preferences, and collaboration norms."
+>
+  <article class="prose">
+    <header class="page-header">
+      <p class="eyebrow">A working manual</p>
+      <h1>{page.data.title}</h1>
+    </header>
+    <div class="article-body">
+      <Content />
+    </div>
+  </article>
+</BaseLayout>

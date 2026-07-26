@@ -1,0 +1,46 @@
+---
+import type { Post } from "../lib/posts";
+import { formatPostDate, getReadingMinutes, slugifyTag } from "../lib/posts";
+import BaseLayout from "./BaseLayout.astro";
+
+interface Props {
+  post: Post;
+}
+
+const { post } = Astro.props;
+const description = post.data.excerpt ?? post.data.description;
+const image = post.data.banner?.src;
+---
+
+<BaseLayout
+  title={post.data.title}
+  description={description}
+  image={image}
+  article
+  publishedAt={post.data.date}
+>
+  <article class="prose">
+    <header class="article-header">
+      <p class="eyebrow">Field note</p>
+      <h1>{post.data.title}</h1>
+      <div class="article-meta">
+        <time datetime={post.data.date.toISOString()}>{formatPostDate(post.data.date)}</time>
+        <span aria-hidden="true">·</span>
+        <span>{getReadingMinutes(post)} min read</span>
+      </div>
+      {
+        post.data.tags.length > 0 && (
+          <ul class="tag-list" aria-label="Topics">
+            {post.data.tags.map((tag) => (
+              <li><a href={`/tags/${slugifyTag(tag)}`}>{tag}</a></li>
+            ))}
+          </ul>
+        )
+      }
+    </header>
+
+    <div class="article-body">
+      <slot />
+    </div>
+  </article>
+</BaseLayout>

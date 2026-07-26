@@ -1,0 +1,67 @@
+---
+import PostCard from "../components/PostCard.astro";
+import SITE from "../config/site";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { getPublishedPosts } from "../lib/posts";
+
+const posts = await getPublishedPosts();
+const [featuredPost, ...recentPosts] = posts;
+---
+
+<BaseLayout>
+  <section class="hero">
+    <div class="hero-copy">
+      <p class="eyebrow">Technology, with the screws visible</p>
+      <h1>Notes from a life spent making complicated systems useful.</h1>
+      <p class="hero-description">
+        I’m Kyle Rubenok—a product manager, homelabber, and incurable tinkerer. This is where I
+        write down the practical details, sharp edges, and opinions worth keeping.
+      </p>
+      <div class="hero-actions">
+        <a class="button" href="/blog">Read the writing</a>
+        <a class="text-link" href={`mailto:${SITE.email}`}>Start a conversation →</a>
+      </div>
+    </div>
+
+    <figure class="portrait">
+      <img
+        src="/images/archive/avatar.png"
+        width="512"
+        height="512"
+        alt="Kyle Rubenok"
+        loading="eager"
+        fetchpriority="high"
+      />
+      <figcaption>Redmond, Washington · originally from Montréal</figcaption>
+    </figure>
+  </section>
+
+  {
+    featuredPost && (
+      <section class="featured-section" aria-labelledby="featured-heading">
+        <div class="section-heading">
+          <p class="eyebrow">From the notebook</p>
+          <h2 id="featured-heading">Start here</h2>
+        </div>
+        <PostCard post={featuredPost} featured />
+      </section>
+    )
+  }
+
+  {
+    recentPosts.length > 0 && (
+      <section class="latest-section" aria-labelledby="latest-heading">
+        <div class="section-heading section-heading-row">
+          <div>
+            <p class="eyebrow">Recently published</p>
+            <h2 id="latest-heading">Latest ramblings</h2>
+          </div>
+          <a class="text-link" href="/blog">View every post →</a>
+        </div>
+        <div class="post-grid">
+          {recentPosts.slice(0, 6).map((post) => <PostCard post={post} />)}
+        </div>
+      </section>
+    )
+  }
+</BaseLayout>

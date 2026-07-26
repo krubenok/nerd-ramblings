@@ -1,0 +1,40 @@
+---
+import SITE from "../config/site";
+
+const { pathname } = Astro.url;
+const isCurrent = (href: string): boolean => {
+  if (href === "/") {
+    return pathname === href;
+  }
+
+  return pathname === href || pathname.startsWith(`${href}/`);
+};
+const getAriaCurrent = (href: string): "page" | undefined => {
+  if (isCurrent(href)) {
+    return "page";
+  }
+
+  return undefined;
+};
+---
+
+<header class="site-header">
+  <a class="wordmark" href="/" aria-label={`${SITE.title}, home`}>
+    <span class="wordmark-mark" aria-hidden="true">NR</span>
+    <span>{SITE.title}</span>
+  </a>
+
+  <nav aria-label="Primary navigation">
+    <ul>
+      {
+        SITE.navigation.map(({ label, href }) => (
+          <li>
+            <a href={href} aria-current={getAriaCurrent(href)}>
+              {label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+</header>

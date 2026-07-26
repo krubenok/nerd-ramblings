@@ -1,14 +1,30 @@
-# Basic dependabot.yml file with
-# minimum configuration for two package managers
-
 version: 2
 updates:
-  # Enable version updates for npm
-  - package-ecosystem: "npm"
-    # Look for `package.json` and `lock` files in the `root` directory
-    directory: "/"
-    # Check the npm registry for updates every day (weekdays)
-    schedule:
-      interval: "daily"
+  - package-ecosystem: npm
+    directory: /
     cooldown:
       default-days: 7
+    schedule:
+      interval: weekly
+      day: monday
+    groups:
+      astro:
+        patterns:
+          - astro
+          - "@astrojs/*"
+      oxc:
+        patterns:
+          - oxfmt
+          - oxlint
+          - oxlint-tsgolint
+      cloudflare:
+        patterns:
+          - wrangler
+
+  - package-ecosystem: github-actions
+    directory: /
+    cooldown:
+      default-days: 7
+    schedule:
+      interval: weekly
+      day: monday
