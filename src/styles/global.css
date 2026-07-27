@@ -210,15 +210,12 @@ main {
 }
 
 .hero {
-  display: grid;
-  grid-template-columns: minmax(0, 1.65fr) minmax(15rem, 0.65fr);
-  align-items: end;
-  gap: clamp(3rem, 8vw, 7rem);
+  max-width: 68rem;
   padding-block: clamp(5rem, 10vw, 9rem);
 }
 
 .hero h1 {
-  max-width: 13ch;
+  max-width: 14ch;
 }
 
 .eyebrow {
@@ -266,26 +263,6 @@ main {
 .text-link {
   font-weight: 750;
   text-decoration: none;
-}
-
-.portrait {
-  margin: 0;
-  rotate: 2deg;
-}
-
-.portrait img {
-  width: 100%;
-  border: 0.6rem solid var(--surface);
-  border-radius: 47% 47% 1.5rem 1.5rem;
-  box-shadow: var(--shadow);
-  filter: saturate(0.88) contrast(1.03);
-}
-
-.portrait figcaption {
-  margin-top: 1rem;
-  color: var(--muted);
-  font-size: 0.75rem;
-  text-align: center;
 }
 
 .featured-section,
@@ -605,16 +582,6 @@ main {
 
   .site-header nav ul {
     justify-content: flex-start;
-  }
-
-  .hero {
-    grid-template-columns: 1fr;
-    align-items: start;
-  }
-
-  .portrait {
-    width: min(20rem, 80%);
-    margin-inline: auto;
   }
 
   .post-grid,
