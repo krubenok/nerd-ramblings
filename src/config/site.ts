@@ -7,7 +7,6 @@ const SITE = {
   locale: "en_US",
   navigation: [
     { href: "/blog", label: "Writing" },
-    { href: "/tags", label: "Topics" },
     { href: "/about", label: "About" },
     { href: "/working-with-kyle", label: "Working with Kyle" },
   ],

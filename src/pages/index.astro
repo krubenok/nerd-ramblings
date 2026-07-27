@@ -1,6 +1,5 @@
 ---
 import PostCard from "../components/PostCard.astro";
-import SITE from "../config/site";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { getPublishedPosts } from "../lib/posts";
 
@@ -19,7 +18,6 @@ const [featuredPost, ...recentPosts] = posts;
       </p>
       <div class="hero-actions">
         <a class="button" href="/blog">Read the writing</a>
-        <a class="text-link" href={`mailto:${SITE.email}`}>Start a conversation →</a>
       </div>
     </div>
   </section>
