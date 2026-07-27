@@ -1,0 +1,38 @@
+---
+import type { Post } from "../lib/posts";
+import {
+  formatPostDate,
+  getPostPath,
+  getReadingMinutes,
+  slugifyTag,
+} from "../lib/posts";
+
+interface Props {
+  post: Post;
+  featured?: boolean;
+}
+
+const { post, featured = false } = Astro.props;
+const description = post.data.excerpt ?? post.data.description;
+---
+
+<article class:list={["post-card", { featured }]}>
+  <div class="post-card-meta">
+    <time datetime={post.data.date.toISOString()}>{formatPostDate(post.data.date)}</time>
+    <span aria-hidden="true">·</span>
+    <span>{getReadingMinutes(post)} min read</span>
+  </div>
+
+  <h2><a href={getPostPath(post)}>{post.data.title}</a></h2>
+  {description && <p>{description}</p>}
+
+  {
+    post.data.tags.length > 0 && (
+      <ul class="tag-list" aria-label="Topics">
+        {post.data.tags.map((tag) => (
+          <li><a href={`/tags/${slugifyTag(tag)}`}>{tag}</a></li>
+        ))}
+      </ul>
+    )
+  }
+</article>

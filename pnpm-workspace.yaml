@@ -1,0 +1,14 @@
+registries:
+  default: https://registry.npmjs.org/
+
+overrides:
+  "anymatch>picomatch": "2.3.2"
+
+engineStrict: true
+strictPeerDependencies: true
+pmOnFail: error
+verifyDepsBeforeRun: error
+
+allowBuilds:
+  esbuild@0.28.1: true
+  workerd@1.20260722.1: true

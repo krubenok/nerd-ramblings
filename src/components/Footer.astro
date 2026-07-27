@@ -1,0 +1,19 @@
+---
+import SITE from "../config/site";
+---
+
+<footer class="site-footer">
+  <div>
+    <p>Thoughts on technology, infrastructure, and making complicated systems useful.</p>
+    <p class="muted">© {new Date().getFullYear()} {SITE.author}. Built with Astro on Cloudflare.</p>
+  </div>
+
+  <nav aria-label="External links">
+    {
+      SITE.socials.map(({ label, href, rel }) => (
+        <a href={href} rel={rel ?? "noreferrer"}>{label}</a>
+      ))
+    }
+    <a href="/rss.xml">RSS</a>
+  </nav>
+</footer>

@@ -1,0 +1,45 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getPublishedPosts, slugifyTag } from "../../lib/posts";
+
+const EMPTY_COUNT = 0;
+const COUNT_INCREMENT = 1;
+const ENTRY_VALUE_INDEX = 1;
+const SINGULAR_COUNT = 1;
+const posts = await getPublishedPosts();
+const tagCounts = posts.reduce<Map<string, { label: string; count: number }>>((counts, post) => {
+  for (const tag of post.data.tags) {
+    const slug = slugifyTag(tag);
+    const current = counts.get(slug);
+    counts.set(slug, {
+      count: (current?.count ?? EMPTY_COUNT) + COUNT_INCREMENT,
+      label: current?.label ?? tag,
+    });
+  }
+  return counts;
+}, new Map());
+const tags = [...tagCounts.entries()].sort((left, right) =>
+  left[ENTRY_VALUE_INDEX].label.localeCompare(right[ENTRY_VALUE_INDEX].label),
+);
+---
+
+<BaseLayout title="Topics" description="Browse Nerd Ramblings by topic.">
+  <header class="page-header">
+    <p class="eyebrow">Browse by subject</p>
+    <h1>Topics</h1>
+    <p>Follow a thread through the archive.</p>
+  </header>
+
+  <ul class="topic-grid">
+    {
+      tags.map(([slug, { label, count }]) => (
+        <li>
+          <a href={`/tags/${slug}`}>
+            <span>{label}</span>
+            <small>{count} {count === SINGULAR_COUNT ? "post" : "posts"}</small>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</BaseLayout>

@@ -1,32 +1,137 @@
-# nerd-ramblings
+# Nerd Ramblings
 
-Theme forked from [@lekoarts](https://github.com/LekoArts/gatsby-themes/tree/master/themes/gatsby-theme-minimal-blog).
+Kyle Rubenok's personal technology blog, built as a fully static Astro site and deployed to
+Cloudflare Workers.
 
-## Frontmatter Reference
+## Architecture
 
-### Blog Post
+- **Astro 7** owns routing, MDX content collections, image optimization, RSS, sitemap generation,
+  canonical metadata, and Content Security Policy generation.
+- **Vite 8 with Rolldown** is Astro's build pipeline. Vite is kept as an explicit development
+  dependency so Dependabot can surface updates directly.
+- **Cloudflare Workers static assets** serves the generated `dist/` directory. There is no Worker
+  runtime script, framework adapter, or server-side rendering path.
+- **Wrangler configuration** in `wrangler.jsonc` is the source of truth for the Worker, custom
+  domain, preview URLs, HTML routing, and 404 behavior.
+- **GitHub Actions** validates every change, while Cloudflare Workers Builds owns preview and
+  production deployments through its native GitHub integration.
+- **pnpm 11** provides strict, reproducible dependency installation locally, in GitHub Actions,
+  and in Cloudflare Workers Builds.
+- **Oxlint + tsgolint** applies correctness, suspicious, pedantic, performance, and style rules as
+  errors. Type-aware linting and TypeScript diagnostics are always enabled.
+- **Oxfmt** formats every supported text format. Oxfmt does not currently support `.astro` files,
+  so `oxfmt.config.ts` excludes them and Astro's compiler validates them during `astro sync` and
+  `astro build`.
 
-```mdx
+The result is prerendered HTML, CSS, and optimized images with no client-side application
+JavaScript.
+
+## Development
+
+Use Node 24 (the current project runtime; Astro 7 requires Node 22.12 or newer):
+
+```sh
+corepack enable pnpm
+pnpm install --frozen-lockfile
+pnpm dev
+```
+
+Useful commands:
+
+```sh
+pnpm format       # Write Oxfmt-supported files
+pnpm lint         # Type-aware Oxlint + TypeScript diagnostics
+pnpm check        # Format check, lint, content validation, and production build
+pnpm preview      # Preview the generated production output
+```
+
+The `packageManager` field pins pnpm 11.17.0 through Corepack, and the committed
+`pnpm-lock.yaml` makes local and CI installs reproducible.
+
+## Writing
+
+Posts live in `src/content/posts/<slug>/index.mdx`. Images stored beside a post can be referenced
+with relative Markdown paths and Astro will optimize them during the build.
+
+Required frontmatter:
+
+```yaml
 ---
-title: Introduction to "Defence against the Dark Arts"
-date: 2019-11-07
-description: Defence Against the Dark Arts (abbreviated as DADA) is a subject taught at Hogwarts School of Witchcraft and Wizardry and Ilvermorny School of Witchcraft and Wizardry.
+title: A useful title
+date: 2026-07-26
 tags:
-  - Tutorial
-  - Dark Arts
-banner: ./defence-against-the-dark-arts.jpg
+  - Homelab
+excerpt: A concise description used in listings, social metadata, and RSS.
 ---
 ```
 
-Description and banner are optional! If no description is provided, an excerpt of the blog post will be used. If no banner is provided, the default siteImage (from siteMetadata) is used.
+Optional fields are `slug`, `description`, `banner`, and `draft`. A frontmatter `slug` preserves a
+historical URL when it differs from the directory name.
 
-The date field has to be written in the format YYYY-MM-DD!
+Site-wide metadata, navigation, and social profiles live in `src/config/site.ts`. Content schemas
+live in `src/content.config.ts`.
 
-### Page
+## GitOps and Cloudflare
 
-```mdx
----
-title: About
-slug: "/about"
----
-```
+Production and preview deployments use Cloudflare Workers Builds connected directly to this GitHub
+repository. Cloudflare manages the build token internally, so GitHub does not store Cloudflare
+credentials.
+
+The Worker build settings are:
+
+- Production branch: `main`
+- Build command: `pnpm build:cloudflare`
+- Deploy command: `pnpm exec wrangler deploy`
+- Non-production branch deploy command: `pnpm exec wrangler versions upload`
+- Root directory: `/`
+- Build variable: `PNPM_VERSION=11.17.0`
+- Build cache: enabled (including pnpm's `.pnpm-store`)
+
+`wrangler.jsonc` declares `nerd-ramblings.com` as a Worker Custom Domain. The first production
+deployment can therefore replace the existing DNS origin; verify a branch preview URL before
+merging the cutover.
+
+The Cloudflare build fetches the current `resume.pdf` from the public `krubenok/resume` repository
+before building. This preserves the prior build-time résumé integration without committing
+generated documents here.
+
+Cloudflare uploads non-production branches as immutable preview versions and reports their status
+and preview URLs to GitHub. GitHub Actions remains responsible for the independent formatting,
+linting, type, build, and workflow-security checks.
+
+## Why not Vite+ yet?
+
+Vite+ is promising and supports Vite-based frameworks, but it is still marked **beta** in its
+official documentation. Astro 7 already includes stable Vite 8 and Rolldown, while standalone
+Oxlint and Oxfmt provide the useful parts of that toolchain without adding a global runtime/package
+manager dependency. Once Vite+ is stable, `vp migrate` can adopt it without changing the Astro or
+Cloudflare architecture.
+
+## Migration notes
+
+- Existing MDX posts, publication dates, tags, images, `/about`, `/working-with-kyle`, and root post
+  URLs are preserved.
+- The historical `twiltercom` frontmatter slug remains the canonical URL.
+- Broken relative links between the 2019 and 2021 "Building This Blog" posts are corrected, with
+  Cloudflare redirects for the old accidental nested paths.
+- `/resume` permanently redirects to `/resume/resume.pdf`.
+- Gatsby, React, Theme UI, Vercel configuration, and their build-time dependency graph are removed.
+
+## Authoritative references
+
+- [Astro 7 release and Vite 8 integration](https://astro.build/blog/astro-7/)
+- [Astro content collections](https://docs.astro.build/en/guides/content-collections/)
+- [Astro configuration and CSP](https://docs.astro.build/en/reference/configuration-reference/)
+- [Cloudflare's Astro on Workers guide](https://developers.cloudflare.com/workers/framework-guides/web-apps/astro/)
+- [Cloudflare Workers static asset headers](https://developers.cloudflare.com/workers/static-assets/headers/)
+- [Cloudflare Workers HTML handling](https://developers.cloudflare.com/workers/static-assets/routing/advanced/html-handling/)
+- [Wrangler configuration](https://developers.cloudflare.com/workers/wrangler/configuration/)
+- [Cloudflare Workers Builds](https://developers.cloudflare.com/workers/ci-cd/builds/)
+- [Cloudflare Workers build image](https://developers.cloudflare.com/workers/ci-cd/builds/build-image/)
+- [Cloudflare GitHub integration](https://developers.cloudflare.com/workers/ci-cd/builds/git-integration/github-integration/)
+- [pnpm installation and Corepack](https://pnpm.io/installation#using-corepack)
+- [pnpm continuous integration](https://pnpm.io/continuous-integration#github-actions)
+- [Vite 8 release](https://vite.dev/blog/announcing-vite8)
+- [Vite+ getting started](https://viteplus.dev/guide/)
+- [Oxlint type-aware linting](https://oxc.rs/docs/guide/usage/linter/type-aware)
+- [Oxfmt language support](https://oxc.rs/docs/guide/usage/formatter/language-support)
