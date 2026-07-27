@@ -42,6 +42,13 @@ export default defineConfig({
         "import/no-unassigned-import": "off",
       },
     },
+    {
+      files: ["scripts/**/*.mjs"],
+      rules: {
+        // Build tooling runs on Node.js rather than in the browser application.
+        "import/no-nodejs-modules": "off",
+      },
+    },
   ],
   plugins: ["import", "jsdoc"],
   rules: {

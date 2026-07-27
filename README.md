@@ -13,8 +13,8 @@ Cloudflare Workers.
   runtime script, framework adapter, or server-side rendering path.
 - **Wrangler configuration** in `wrangler.jsonc` is the source of truth for the Worker, custom
   domain, preview URLs, HTML routing, and 404 behavior.
-- **GitHub Actions** checks every change, uploads preview Worker versions for same-repository pull
-  requests, and deploys `main`.
+- **GitHub Actions** validates every change, while Cloudflare Workers Builds owns preview and
+  production deployments through its native GitHub integration.
 - **Oxlint + tsgolint** applies correctness, suspicious, pedantic, performance, and style rules as
   errors. Type-aware linting and TypeScript diagnostics are always enabled.
 - **Oxfmt** formats every supported text format. Oxfmt does not currently support `.astro` files,
@@ -69,25 +69,29 @@ live in `src/content.config.ts`.
 
 ## GitOps and Cloudflare
 
-Production deployment is intentionally controlled from the repository:
+Production and preview deployments use Cloudflare Workers Builds connected directly to this GitHub
+repository. Cloudflare manages the build token internally, so GitHub does not store Cloudflare
+credentials.
 
-1. Create a scoped Cloudflare API token with permission to edit Workers and the
-   `nerd-ramblings.com` zone.
-2. Add `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` as GitHub Actions secrets.
-3. Create a protected GitHub environment named `production` if deployment approvals are desired.
-4. Run the **Deploy to Cloudflare** workflow manually for the first deployment.
-5. After verification, merges to `main` deploy automatically.
+The Worker build settings are:
+
+- Production branch: `main`
+- Build command: `npm run build:cloudflare`
+- Deploy command: `npx wrangler deploy`
+- Non-production branch deploy command: `npx wrangler versions upload`
+- Root directory: `/`
 
 `wrangler.jsonc` declares `nerd-ramblings.com` as a Worker Custom Domain. The first production
-deployment can therefore replace the existing DNS origin; use the manual workflow and verify the
-preview URL before performing that cutover.
+deployment can therefore replace the existing DNS origin; verify a branch preview URL before
+merging the cutover.
 
-The production workflow checks out the public `krubenok/resume` repository and copies its current
-`resume.pdf` into the static output before building. This preserves the prior build-time résumé
-integration without committing generated documents here.
+The Cloudflare build fetches the current `resume.pdf` from the public `krubenok/resume` repository
+before building. This preserves the prior build-time résumé integration without committing
+generated documents here.
 
-Pull requests from branches in this repository upload immutable preview versions with
-`wrangler versions upload`. Fork pull requests run CI but do not receive Cloudflare secrets.
+Cloudflare uploads non-production branches as immutable preview versions and reports their status
+and preview URLs to GitHub. GitHub Actions remains responsible for the independent formatting,
+linting, type, build, and workflow-security checks.
 
 ## Why not Vite+ yet?
 
@@ -116,7 +120,8 @@ Cloudflare architecture.
 - [Cloudflare Workers static asset headers](https://developers.cloudflare.com/workers/static-assets/headers/)
 - [Cloudflare Workers HTML handling](https://developers.cloudflare.com/workers/static-assets/routing/advanced/html-handling/)
 - [Wrangler configuration](https://developers.cloudflare.com/workers/wrangler/configuration/)
-- [Cloudflare GitHub Actions deployment](https://developers.cloudflare.com/workers/ci-cd/external-cicd/github-actions/)
+- [Cloudflare Workers Builds](https://developers.cloudflare.com/workers/ci-cd/builds/)
+- [Cloudflare GitHub integration](https://developers.cloudflare.com/workers/ci-cd/builds/git-integration/github-integration/)
 - [Vite 8 release](https://vite.dev/blog/announcing-vite8)
 - [Vite+ getting started](https://viteplus.dev/guide/)
 - [Oxlint type-aware linting](https://oxc.rs/docs/guide/usage/linter/type-aware)

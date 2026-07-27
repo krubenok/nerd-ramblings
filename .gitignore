@@ -19,5 +19,5 @@ dist/
 .vscode/
 .DS_Store
 
-# Temporary résumé checkout used by CI
-.resume-source/
+# Generated build-time assets
+public/resume/
