@@ -9,16 +9,16 @@
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
-    "build:cloudflare": "npm run fetch:resume && npm run check",
+    "build:cloudflare": "pnpm fetch:resume && pnpm check",
     "preview": "astro preview",
     "sync": "astro sync",
     "lint": "astro sync && oxlint --type-aware --type-check --deny-warnings --report-unused-disable-directives",
     "format": "oxfmt .",
     "format:check": "oxfmt --check .",
-    "check": "npm run format:check && npm run lint && npm run build",
+    "check": "pnpm format:check && pnpm lint && pnpm build",
     "fetch:resume": "node scripts/fetch-resume.mjs",
-    "deploy": "npm run check && wrangler deploy",
-    "deploy:preview": "npm run check && wrangler versions upload"
+    "deploy": "pnpm check && wrangler deploy",
+    "deploy:preview": "pnpm check && wrangler versions upload"
   },
   "dependencies": {
     "@astrojs/mdx": "^7.0.3",
@@ -35,12 +35,8 @@
     "vite": "^8.1.5",
     "wrangler": "^4.114.0"
   },
-  "overrides": {
-    "anymatch": {
-      "picomatch": "2.3.2"
-    }
-  },
   "engines": {
     "node": ">=24.0.0"
-  }
+  },
+  "packageManager": "pnpm@11.17.0"
 }

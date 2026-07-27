@@ -15,6 +15,8 @@ Cloudflare Workers.
   domain, preview URLs, HTML routing, and 404 behavior.
 - **GitHub Actions** validates every change, while Cloudflare Workers Builds owns preview and
   production deployments through its native GitHub integration.
+- **pnpm 11** provides strict, reproducible dependency installation locally, in GitHub Actions,
+  and in Cloudflare Workers Builds.
 - **Oxlint + tsgolint** applies correctness, suspicious, pedantic, performance, and style rules as
   errors. Type-aware linting and TypeScript diagnostics are always enabled.
 - **Oxfmt** formats every supported text format. Oxfmt does not currently support `.astro` files,
@@ -29,20 +31,22 @@ JavaScript.
 Use Node 24 (the current project runtime; Astro 7 requires Node 22.12 or newer):
 
 ```sh
-npm ci
-npm run dev
+corepack enable pnpm
+pnpm install --frozen-lockfile
+pnpm dev
 ```
 
 Useful commands:
 
 ```sh
-npm run format       # Write Oxfmt-supported files
-npm run lint         # Type-aware Oxlint + TypeScript diagnostics
-npm run check        # Format check, lint, content validation, and production build
-npm run preview      # Preview the generated production output
+pnpm format       # Write Oxfmt-supported files
+pnpm lint         # Type-aware Oxlint + TypeScript diagnostics
+pnpm check        # Format check, lint, content validation, and production build
+pnpm preview      # Preview the generated production output
 ```
 
-The committed lockfile makes local and CI installs reproducible.
+The `packageManager` field pins pnpm 11.17.0 through Corepack, and the committed
+`pnpm-lock.yaml` makes local and CI installs reproducible.
 
 ## Writing
 
@@ -76,10 +80,12 @@ credentials.
 The Worker build settings are:
 
 - Production branch: `main`
-- Build command: `npm run build:cloudflare`
-- Deploy command: `npx wrangler deploy`
-- Non-production branch deploy command: `npx wrangler versions upload`
+- Build command: `pnpm build:cloudflare`
+- Deploy command: `pnpm exec wrangler deploy`
+- Non-production branch deploy command: `pnpm exec wrangler versions upload`
 - Root directory: `/`
+- Build variable: `PNPM_VERSION=11.17.0`
+- Build cache: enabled (including pnpm's `.pnpm-store`)
 
 `wrangler.jsonc` declares `nerd-ramblings.com` as a Worker Custom Domain. The first production
 deployment can therefore replace the existing DNS origin; verify a branch preview URL before
@@ -121,7 +127,10 @@ Cloudflare architecture.
 - [Cloudflare Workers HTML handling](https://developers.cloudflare.com/workers/static-assets/routing/advanced/html-handling/)
 - [Wrangler configuration](https://developers.cloudflare.com/workers/wrangler/configuration/)
 - [Cloudflare Workers Builds](https://developers.cloudflare.com/workers/ci-cd/builds/)
+- [Cloudflare Workers build image](https://developers.cloudflare.com/workers/ci-cd/builds/build-image/)
 - [Cloudflare GitHub integration](https://developers.cloudflare.com/workers/ci-cd/builds/git-integration/github-integration/)
+- [pnpm installation and Corepack](https://pnpm.io/installation#using-corepack)
+- [pnpm continuous integration](https://pnpm.io/continuous-integration#github-actions)
 - [Vite 8 release](https://vite.dev/blog/announcing-vite8)
 - [Vite+ getting started](https://viteplus.dev/guide/)
 - [Oxlint type-aware linting](https://oxc.rs/docs/guide/usage/linter/type-aware)
