@@ -11,7 +11,6 @@ const SITE = {
     { href: "/working-with-kyle", label: "Working with Kyle" },
   ],
   socials: [
-    { href: "https://hachyderm.io/@krubenok", label: "Mastodon", rel: "me" },
     { href: "https://github.com/krubenok", label: "GitHub" },
     { href: "https://linkedin.com/in/krubenok", label: "LinkedIn" },
   ],
