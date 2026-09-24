@@ -1,21 +1,21 @@
 ---
 import SITE from "../config/site";
 
-const { pathname } = Astro.url;
-const isCurrent = (href: string): boolean => {
-  if (href === "/") {
-    return pathname === href;
-  }
-
-  return pathname === href || pathname.startsWith(`${href}/`);
-};
 const getAriaCurrent = (href: string): "page" | undefined => {
   if (isCurrent(href)) {
     return "page";
   }
 
   return undefined;
-};
+},
+ isCurrent = (href: string): boolean => {
+  if (href === "/") {
+    return pathname === href;
+  }
+
+  return pathname === href || pathname.startsWith(`${href}/`);
+},
+ { pathname } = Astro.url;
 ---
 
 <header class="site-header">

@@ -9,16 +9,16 @@ interface Props {
   posts: Post[];
 }
 
-export const getStaticPaths = async () => {
-  const posts = await getPublishedPosts();
-  const tags = new Map<string, { label: string; posts: Post[] }>();
+const getStaticPaths = async () => {
+  const posts = await getPublishedPosts(),
+    tags = new Map<string, { label: string; posts: Post[] }>();
 
   for (const post of posts) {
     for (const label of post.data.tags) {
-      const slug = slugifyTag(label);
-      const entry = tags.get(slug) ?? { label, posts: [] };
-      entry.posts.push(post);
-      tags.set(slug, entry);
+      const tagSlug = slugifyTag(label),
+        tagValue = tags.get(tagSlug) ?? { label, posts: [] };
+      tagValue.posts.push(post);
+      tags.set(tagSlug, tagValue);
     }
   }
 
@@ -26,9 +26,10 @@ export const getStaticPaths = async () => {
     params: { tag },
     props,
   }));
-};
+},
+  { label, posts } = Astro.props;
 
-const { label, posts } = Astro.props;
+export { getStaticPaths };
 ---
 
 <BaseLayout title={label} description={`Nerd Ramblings posts about ${label}.`}>

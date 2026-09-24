@@ -3,8 +3,8 @@ import PostCard from "../components/PostCard.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { getPublishedPosts } from "../lib/posts";
 
-const posts = await getPublishedPosts();
-const [featuredPost, ...recentPosts] = posts;
+const posts = await getPublishedPosts(),
+ [featuredPost, ...recentPosts] = posts;
 ---
 
 <BaseLayout>

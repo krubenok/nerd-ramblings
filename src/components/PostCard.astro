@@ -12,8 +12,8 @@ interface Props {
   featured?: boolean;
 }
 
-const { post, featured = false } = Astro.props;
-const description = post.data.excerpt ?? post.data.description;
+const { post, featured = false } = Astro.props,
+ description = post.data.excerpt ?? post.data.description;
 ---
 
 <article class:list={["post-card", { featured }]}>

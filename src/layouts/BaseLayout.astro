@@ -18,13 +18,13 @@ const {
   image = SITE.defaultImage,
   article = false,
   publishedAt,
-} = Astro.props;
+} = Astro.props,
+  canonical = new URL(Astro.url.pathname, SITE.url),
+  socialImage = new URL(image, SITE.url);
 let pageTitle = SITE.titleAlt;
 if (title) {
   pageTitle = `${title} · ${SITE.title}`;
 }
-const canonical = new URL(Astro.url.pathname, SITE.url);
-const socialImage = new URL(image, SITE.url);
 ---
 
 <!doctype html>
