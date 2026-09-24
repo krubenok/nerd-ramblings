@@ -4,22 +4,21 @@ import type { Post } from "../lib/posts";
 import PostLayout from "../layouts/PostLayout.astro";
 import { getPostSlug, getPublishedPosts } from "../lib/posts";
 
-const getStaticPaths = async () => {
+export const getStaticPaths = async () => {
   const posts = await getPublishedPosts();
 
   return posts.map((post) => ({
     params: { slug: getPostSlug(post) },
     props: { post },
   }));
-},
-  { post } = Astro.props,
-  { Content } = await render(post);
+};
 
 interface Props {
   post: Post;
 }
 
-export { getStaticPaths };
+const { post } = Astro.props;
+const { Content } = await render(post);
 ---
 
 <PostLayout post={post}>

@@ -58,6 +58,8 @@ export default defineConfig({
         allowSeparateTypeImports: true,
       },
     ],
+    // Separate declarations keep Astro's framework exports isolated from request-scoped values.
+    "eslint/one-var": ["error", "never"],
     // Oxfmt is the single owner of import ordering.
     "eslint/sort-imports": "off",
     // Named exports are intentional for reusable utilities and Astro's framework hooks.

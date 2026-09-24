@@ -7,9 +7,9 @@ interface Props {
   post: Post;
 }
 
-const { post } = Astro.props,
- description = post.data.excerpt ?? post.data.description,
- image = post.data.banner?.src;
+const { post } = Astro.props;
+const description = post.data.excerpt ?? post.data.description;
+const image = post.data.banner?.src;
 ---
 
 <BaseLayout

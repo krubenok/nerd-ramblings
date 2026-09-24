@@ -2,16 +2,14 @@
 import { getCollection, render } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
-const { Content, page } = await (async () => {
-  const allPages = await getCollection("pages"),
-    matchingPage = allPages.find(({ data }) => data.slug === "/working-with-kyle");
+const pages = await getCollection("pages");
+const page = pages.find(({ data }) => data.slug === "/working-with-kyle");
 
-  if (!matchingPage) {
-    throw new Error("The Working with Kyle page is missing from the pages content collection.");
-  }
+if (!page) {
+  throw new Error("The Working with Kyle page is missing from the pages content collection.");
+}
 
-  return { page: matchingPage, ...(await render(matchingPage)) };
-})();
+const { Content } = await render(page);
 ---
 
 <BaseLayout
