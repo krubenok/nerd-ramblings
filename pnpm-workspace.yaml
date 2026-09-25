@@ -14,4 +14,17 @@ verifyDepsBeforeRun: error
 allowBuilds:
   esbuild@0.28.1: true
   esbuild@0.28.2: true
-  workerd@1.20260730.1: true
+  workerd@1.20260923.1: true
+
+minimumReleaseAgeExclude:
+  - astro@7.3.5
+  - "@oxlint-tsgolint/darwin-arm64@7.0.2003"
+  - "@oxlint-tsgolint/darwin-x64@7.0.2003"
+  - "@oxlint-tsgolint/linux-arm64@7.0.2003"
+  - "@oxlint-tsgolint/linux-x64@7.0.2003"
+  - "@oxlint-tsgolint/win32-arm64@7.0.2003"
+  - "@oxlint-tsgolint/win32-x64@7.0.2003"
+  - miniflare@5.20260923.0-alpha
+  - oxlint-tsgolint@7.0.2003
+  - vite@8.3.1
+  - wrangler@4.139.0

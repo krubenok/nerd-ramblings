@@ -21,19 +21,19 @@
     "deploy:preview": "pnpm check && wrangler versions upload"
   },
   "dependencies": {
-    "@astrojs/mdx": "^8.0.0",
+    "@astrojs/mdx": "^8.0.2",
     "@astrojs/rss": "^4.0.19",
     "@astrojs/sitemap": "^3.7.4",
-    "astro": "^7.3.1",
-    "sharp": "^0.35.3"
+    "astro": "^7.3.5",
+    "sharp": "^0.35.4"
   },
   "devDependencies": {
-    "oxfmt": "^0.62.0",
-    "oxlint": "^1.77.0",
-    "oxlint-tsgolint": "^7.0.2001",
+    "oxfmt": "^0.70.0",
+    "oxlint": "^1.85.0",
+    "oxlint-tsgolint": "^7.0.2003",
     "typescript": "^7.0.2",
-    "vite": "^8.2.2",
-    "wrangler": "^4.118.0"
+    "vite": "^8.3.1",
+    "wrangler": "^4.139.0"
   },
   "engines": {
     "node": ">=24.0.0"
