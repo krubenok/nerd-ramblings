@@ -3,8 +3,8 @@ registries:
 
 overrides:
   "anymatch>picomatch": "2.3.2"
-  js-yaml: "4.3.1"
-  undici: "7.29.0"
+  js-yaml: "4.3.2"
+  undici: "7.29.1"
 
 engineStrict: true
 strictPeerDependencies: true
@@ -14,7 +14,7 @@ verifyDepsBeforeRun: error
 allowBuilds:
   esbuild@0.28.1: true
   esbuild@0.28.2: true
-  workerd@1.20260923.1: true
+  workerd@1.20261001.1: true
 
 minimumReleaseAgeExclude:
   - astro@7.3.5
